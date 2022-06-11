@@ -51,3 +51,10 @@ h1 {
     object-fit: cover;
     object-position: top;
 }
+.photographer_section article .city {
+    color: #901C1C;
+    margin-top: -2em;
+}
+.photographer_section article .price {
+    color: #757575;
+}
