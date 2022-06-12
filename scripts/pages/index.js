@@ -19,7 +19,6 @@
         .catch(function(err){
             console.log(err);
         })
-        // ho aggiunto fetch alla funzione e ho creato un ciclo for per percorrere gli elementi. 
         // et bien retourner le tableau photographers seulement une fois
     }    
     /*async function displayData(photographers) {
