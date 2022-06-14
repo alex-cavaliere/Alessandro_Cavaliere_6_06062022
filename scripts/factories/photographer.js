@@ -4,7 +4,7 @@ function photographerFactory(data) {
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const link = document.createElement('a');
-        link.setAttribute("href", "./photographer.html?id="+ data.id);
+        link.setAttribute("href", "./photographer.html?id="+ photographer.id);
         link.setAttribute("aria-label", photographer.name);
         link.classList.add('link');
         const img = document.createElement( 'img' );
@@ -34,4 +34,17 @@ function photographerFactory(data) {
     }
     return { getUserCardDOM }
 }
-
+// la funzione agisce correttamente e recupera i dati in base all'Id 
+function getUser(data){
+    const users = new Photographer(data);
+    function user(){
+        const header = document.querySelector('.photograph-header');
+        const h1 = document.createElement('h1');
+        h1.classList.add('h1');
+        h1.setAttribute("aria-label", users.name);
+        h1.textContent = users.name;
+        header.append(h1);
+        console.log(users);
+    }
+    return { user }
+}
