@@ -12,9 +12,9 @@ async function getPhotographers() {
         //console.log(photographers);
         const photographersSection = document.querySelector(".photograph-header");
         const Params = (new URL(document.location).searchParams);
-        const controls = Number(Params.get("id"));
+        const Id = Number(Params.get("id"));
         photographers.forEach((photographer) => {
-            if (photographer.id === controls) {
+            if (photographer.id === Id) {
                 const photographerModel = getUser(photographer);
                 const userCardDOM = photographerModel.user();
                 photographersSection.append(userCardDOM);   
@@ -26,8 +26,28 @@ async function getPhotographers() {
     })
     // et bien retourner le tableau photographers seulement une fois
 }    
+
+// funzione da sistemare... bisogna prendere i media dopo aver creato un constructor
+/*async function getMedias(){
+    fetch('./data/photographers.json')
+    .then(function(res){
+        if(res.ok){
+            return res.json()
+        }
+    })
+    .then(function(data){
+        const medias = data.media;
+        const mediaSection = document.querySelector(".photograph-body");
+        medias.forEach((media) => {
+            const mediaModel = getUser(media);
+            const userCardDOM = mediaModel.user();
+            mediaSection.append(userCardDOM);   
+        });
+    })
+}*/
 async function init() {
     // Récupère les datas des photographes
     const photographers = await getPhotographers();
+    //const medias = await getMedias();
 };
 init();

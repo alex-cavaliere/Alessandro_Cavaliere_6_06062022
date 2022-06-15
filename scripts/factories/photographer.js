@@ -39,12 +39,32 @@ function getUser(data){
     const users = new Photographer(data);
     function user(){
         const header = document.querySelector('.photograph-header');
+        const btn = document.querySelector('.contact_button');
+        const headerContent = document.createElement('div');
+        headerContent.classList.add('header-content');
         const h1 = document.createElement('h1');
+        const slogan = document.createElement('div');
+        const img = document.createElement('img');
+        img.setAttribute("alt", users.name);
+        img.setAttribute("src", users.portrait);
+        slogan.classList.add('tagline');
+        slogan.textContent = users.tagline;
+        const bio = document.createElement('div');
+        bio.classList.add('photographer-label');
         h1.classList.add('h1');
+        const country = document.createElement('div');
+        country.classList.add('country');
+        country.textContent = users.city + ", " + users.country;
         h1.setAttribute("aria-label", users.name);
         h1.textContent = users.name;
-        header.append(h1);
-        console.log(users);
+        bio.append(h1);
+        bio.append(country);
+        bio.append(slogan);
+        headerContent.appendChild(bio);
+        headerContent.append(img);
+        headerContent.append(btn)
+        header.appendChild(headerContent);
+        return (headerContent);
     }
     return { user }
 }
