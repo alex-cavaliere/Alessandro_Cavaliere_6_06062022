@@ -5,7 +5,7 @@
 .photograph-header {
     background-color: #FAFAFA;
     height: 18.75em;
-    margin: 0 100px;
+    margin: 20px 100px;
 }
 .photograph-body{
     display: flex;
@@ -124,5 +124,39 @@ form input {
     left: 0px;
     top: 0px;
     border-radius: 5px;    
-    margin: 2rem;
 }
+.photograph-body{
+    color: #901C1C;
+}
+.caption{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 31px;
+    left: 0px;
+    top: 310px;
+    border-radius: undefinedpx;
+}
+.caption span{
+    min-width: 40px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-content .price{
+    position: fixed;
+    display: flex;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    width: 376px;
+    border-radius: 5px;
+    background: #DB8876;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+

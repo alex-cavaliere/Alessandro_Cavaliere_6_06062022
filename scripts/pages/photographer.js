@@ -15,7 +15,7 @@ async function getPhotographers() {
         const Id = Number(Params.get("id"));
         photographers.forEach((photographer) => {
             if (photographer.id === Id) {
-                const photographerModel = getUser(photographer);
+                const photographerModel = photographerFactory(photographer);
                 const userCardDOM = photographerModel.user();
                 photographersSection.append(userCardDOM);   
             }
@@ -42,7 +42,7 @@ async function getMedias(){
         const Id = Number(Params.get("id"));
         medias.forEach((media) => {
             if(media.photographerId === Id){
-                const mediaModel = getMedia(media);
+                const mediaModel = photographerFactory(media);
                 const userCardDOM = mediaModel.media();
                 mediaSection.append(userCardDOM);
             }   

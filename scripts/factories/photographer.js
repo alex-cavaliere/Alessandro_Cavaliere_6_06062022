@@ -1,5 +1,7 @@
 function photographerFactory(data) {
     const photographer = new Photographer(data);
+    const medias = new Media(data);
+    console.log(medias);
     
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
@@ -32,53 +34,67 @@ function photographerFactory(data) {
         article.appendChild(prix);
         return (article);
     }
-    return { getUserCardDOM }
-}
-// la funzione agisce correttamente e recupera i dati in base all'Id 
-function getUser(data){
-    const users = new Photographer(data);
     function user(){
         const header = document.querySelector('.photograph-header');
         const btn = document.querySelector('.contact_button');
         const headerContent = document.createElement('div');
+        const prix = document.createElement('div');
+        prix.classList.add('price');
+        prix.textContent = photographer.price + "€/Jour";
         headerContent.classList.add('header-content');
         const h1 = document.createElement('h1');
         const slogan = document.createElement('div');
         const img = document.createElement('img');
-        img.setAttribute("alt", users.name);
-        img.setAttribute("src", users.portrait);
+        img.setAttribute("alt", photographer.name);
+        img.setAttribute("src", photographer.portrait);
         slogan.classList.add('tagline');
-        slogan.textContent = users.tagline;
+        slogan.textContent = photographer.tagline;
         const bio = document.createElement('div');
         bio.classList.add('photographer-label');
         h1.classList.add('h1');
         const country = document.createElement('div');
         country.classList.add('country');
-        country.textContent = users.city + ", " + users.country;
-        h1.setAttribute("aria-label", users.name);
-        h1.textContent = users.name;
+        country.textContent = photographer.city + ", " + photographer.country;
+        h1.setAttribute("aria-label", photographer.name);
+        h1.textContent = photographer.name;
         bio.append(h1);
         bio.append(country);
         bio.append(slogan);
+        headerContent.append(prix);
         headerContent.appendChild(bio);
         headerContent.append(img);
         headerContent.append(btn)
         header.appendChild(headerContent);
         return (headerContent);
     }
-    return { user }
-}
-function getMedia(data){
-    const medias = new Media(data);
-    console.log(medias)
     function media() {
         const body = document.querySelector('.photograph-body');
+        const figure = document.createElement('figure');
         const img = document.createElement('img');
+        const caption = document.createElement('div');
+        const video = document.createElement('video');
+        video.setAttribute("src", medias.video);
+        caption.classList.add('caption');
+        const p = document.createElement('p');
+        p.textContent = medias.title;
+        const likes = document.createElement('p');
+        likes.textContent = medias.likes;
+        const heart = document.createElement('span');
+        const i = document.createElement('i');
+        i.classList.add('fa-regular');
+        i.classList.add('fa-heart');
+        heart.append(likes);
+        heart.append(i);
+        caption.append(p);
+        caption.append(heart);
         img.classList.add('thumbnail');
         img.setAttribute("src", medias.image);
         img.setAttribute("alt", medias.title);
-        body.append(img);
-        return(img);
+        figure.append(img);
+        figure.append(caption);
+        body.append(figure);
+        return(figure);
     }
-    return { media }
+    return { getUserCardDOM, user, media }
 }
+// la funzione agisce correttamente e recupera i dati in base all'Id 
