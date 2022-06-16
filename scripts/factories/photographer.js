@@ -68,3 +68,17 @@ function getUser(data){
     }
     return { user }
 }
+function getMedia(data){
+    const medias = new Media(data);
+    console.log(medias)
+    function media() {
+        const body = document.querySelector('.photograph-body');
+        const img = document.createElement('img');
+        img.classList.add('thumbnail');
+        img.setAttribute("src", medias.image);
+        img.setAttribute("alt", medias.title);
+        body.append(img);
+        return(img);
+    }
+    return { media }
+}

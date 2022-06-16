@@ -28,7 +28,7 @@ async function getPhotographers() {
 }    
 
 // funzione da sistemare... bisogna prendere i media dopo aver creato un constructor
-/*async function getMedias(){
+async function getMedias(){
     fetch('./data/photographers.json')
     .then(function(res){
         if(res.ok){
@@ -38,16 +38,20 @@ async function getPhotographers() {
     .then(function(data){
         const medias = data.media;
         const mediaSection = document.querySelector(".photograph-body");
+        const Params = (new URL(document.location).searchParams);
+        const Id = Number(Params.get("id"));
         medias.forEach((media) => {
-            const mediaModel = getUser(media);
-            const userCardDOM = mediaModel.user();
-            mediaSection.append(userCardDOM);   
+            if(media.photographerId === Id){
+                const mediaModel = getMedia(media);
+                const userCardDOM = mediaModel.media();
+                mediaSection.append(userCardDOM);
+            }   
         });
     })
-}*/
+}
 async function init() {
     // Récupère les datas des photographes
     const photographers = await getPhotographers();
-    //const medias = await getMedias();
+    const medias = await getMedias();
 };
 init();

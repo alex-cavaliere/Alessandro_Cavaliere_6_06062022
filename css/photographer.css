@@ -7,6 +7,12 @@
     height: 18.75em;
     margin: 0 100px;
 }
+.photograph-body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 100px;
+}
 
 .contact_button {
     font-size: 20px;
@@ -110,4 +116,13 @@ form input {
     object-fit: cover;
     border-radius: 50%;
     order: 3;
+}
+.photograph-body .thumbnail{
+    object-fit: cover;
+    height: 300px;
+    width: 350px;
+    left: 0px;
+    top: 0px;
+    border-radius: 5px;    
+    margin: 2rem;
 }
