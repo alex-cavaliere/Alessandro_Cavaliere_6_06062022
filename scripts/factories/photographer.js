@@ -68,14 +68,16 @@ function photographerFactory(data) {
     return { getUserCardDOM, user }
 }
 function mediasFactory(data){
-    function media() {
+    // ici j'ai stocké 2 fonctions pour les Template des images et videos que 
+    // j'ai associé à la Factory.
+    function imgTemplate() {
         const picture = new MediaFactory(data, 'img');
         const body = document.querySelector('.photograph-body');
-        const figure = document.createElement('figure');
+        const figure = document.createElement('div');
+        const a = document.createElement('a');
+        figure.classList.add('card');
         const img = document.createElement('img');
         const caption = document.createElement('div');
-        //const video = document.createElement('video');
-        //video.setAttribute("src", mediaVid.video);
         caption.classList.add('caption');
         const p = document.createElement('p');
         p.textContent = picture._title;
@@ -92,19 +94,27 @@ function mediasFactory(data){
         img.classList.add('thumbnail');
         img.setAttribute("src", picture._imagepath);
         img.setAttribute("alt", picture._title);
-        figure.append(img);
+        a.setAttribute("href", picture._imagepath);
+        a.appendChild(img);      
+        figure.append(a);
         figure.append(caption);
         body.append(figure);
         return(figure);
     }
-    function mediaVid() {
+    function videoTemplate() {
         const vid = new MediaFactory(data, 'video');
         const body = document.querySelector('.photograph-body');
-        const figure = document.createElement('figure');
+        const figure = document.createElement('div');
+        const a = document.createElement('a');
+        figure.classList.add('card');
         const caption = document.createElement('div');
         const video = document.createElement('video');
+        const source = document.createElement('source');
+        source.setAttribute("src", vid._videopath);
+        source.setAttribute("type", "video/mp4");
         video.classList.add('thumbnail');
-        video.setAttribute("src", vid._videopath);
+        video.controls = true;
+        video.appendChild(source);
         caption.classList.add('caption');
         const p = document.createElement('p');
         p.textContent = vid._title;
@@ -118,10 +128,12 @@ function mediasFactory(data){
         heart.append(i);
         caption.append(p);
         caption.append(heart);
-        figure.append(video);
+        a.setAttribute("href", "#");
+        a.appendChild(video);
+        figure.append(a);
         figure.append(caption);
         body.append(figure);
         return(figure);
     }
-    return { media, mediaVid }
+    return { imgTemplate, videoTemplate }
 }

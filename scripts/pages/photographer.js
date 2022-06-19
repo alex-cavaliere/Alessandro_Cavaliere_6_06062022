@@ -48,16 +48,17 @@ async function getMedias(){
         medias
         .forEach((media) => {
             if(media.photographerId === Id){
-                console.log(media.hasOwnProperty('image'))
+                //console.log(media.hasOwnProperty('image'))
+                //je verifie si c'est une image ou un video.
                 if(media.hasOwnProperty('image')){
                     medias.map(media => new MediaFactory(media, 'img'))
                     const mediaModel = mediasFactory(media);
-                    const userCardDOM = mediaModel.media(); 
+                    const userCardDOM = mediaModel.imgTemplate(); 
                     mediaSection.append(userCardDOM);
                 }else if(media.hasOwnProperty('video')){
                     medias.map(media => new MediaFactory(media, 'video'))
                     const mediaModel = mediasFactory(media);
-                    const userCardDOM = mediaModel.mediaVid(); 
+                    const userCardDOM = mediaModel.videoTemplate(); 
                     mediaSection.append(userCardDOM);
                 }
             }   
