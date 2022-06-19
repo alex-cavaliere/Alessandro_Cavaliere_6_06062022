@@ -1,7 +1,5 @@
 function photographerFactory(data) {
     const photographer = new Photographer(data);
-    const medias = new Media(data);
-    console.log(medias);
     
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
@@ -67,18 +65,22 @@ function photographerFactory(data) {
         header.appendChild(headerContent);
         return (headerContent);
     }
+    return { getUserCardDOM, user }
+}
+function mediasFactory(data){
     function media() {
+        const picture = new MediaFactory(data, 'img');
         const body = document.querySelector('.photograph-body');
         const figure = document.createElement('figure');
         const img = document.createElement('img');
         const caption = document.createElement('div');
-        const video = document.createElement('video');
-        video.setAttribute("src", medias.video);
+        //const video = document.createElement('video');
+        //video.setAttribute("src", mediaVid.video);
         caption.classList.add('caption');
         const p = document.createElement('p');
-        p.textContent = medias.title;
+        p.textContent = picture._title;
         const likes = document.createElement('p');
-        likes.textContent = medias.likes;
+        likes.textContent = picture._likes;
         const heart = document.createElement('span');
         const i = document.createElement('i');
         i.classList.add('fa-regular');
@@ -88,13 +90,38 @@ function photographerFactory(data) {
         caption.append(p);
         caption.append(heart);
         img.classList.add('thumbnail');
-        img.setAttribute("src", medias.image);
-        img.setAttribute("alt", medias.title);
+        img.setAttribute("src", picture._imagepath);
+        img.setAttribute("alt", picture._title);
         figure.append(img);
         figure.append(caption);
         body.append(figure);
         return(figure);
     }
-    return { getUserCardDOM, user, media }
+    function mediaVid() {
+        const vid = new MediaFactory(data, 'video');
+        const body = document.querySelector('.photograph-body');
+        const figure = document.createElement('figure');
+        const caption = document.createElement('div');
+        const video = document.createElement('video');
+        video.classList.add('thumbnail');
+        video.setAttribute("src", vid._videopath);
+        caption.classList.add('caption');
+        const p = document.createElement('p');
+        p.textContent = vid._title;
+        const likes = document.createElement('p');
+        likes.textContent = vid._likes;
+        const heart = document.createElement('span');
+        const i = document.createElement('i');
+        i.classList.add('fa-regular');
+        i.classList.add('fa-heart');
+        heart.append(likes);
+        heart.append(i);
+        caption.append(p);
+        caption.append(heart);
+        figure.append(video);
+        figure.append(caption);
+        body.append(figure);
+        return(figure);
+    }
+    return { media, mediaVid }
 }
-// la funzione agisce correttamente e recupera i dati in base all'Id 

@@ -36,15 +36,30 @@ async function getMedias(){
         }
     })
     .then(function(data){
+        //
         const medias = data.media;
+        //const mediaImg = medias.map(media => new MediaFactory(media, 'img'));
+        //const mediaVideo = medias.map(media => new MediaFactory(media, 'video'));
+        //const med = mediaImg.concat(mediaVideo);
+        //console.log(med);
         const mediaSection = document.querySelector(".photograph-body");
         const Params = (new URL(document.location).searchParams);
         const Id = Number(Params.get("id"));
-        medias.forEach((media) => {
+        medias
+        .forEach((media) => {
             if(media.photographerId === Id){
-                const mediaModel = photographerFactory(media);
-                const userCardDOM = mediaModel.media();
-                mediaSection.append(userCardDOM);
+                console.log(media.hasOwnProperty('image'))
+                if(media.hasOwnProperty('image')){
+                    medias.map(media => new MediaFactory(media, 'img'))
+                    const mediaModel = mediasFactory(media);
+                    const userCardDOM = mediaModel.media(); 
+                    mediaSection.append(userCardDOM);
+                }else if(media.hasOwnProperty('video')){
+                    medias.map(media => new MediaFactory(media, 'video'))
+                    const mediaModel = mediasFactory(media);
+                    const userCardDOM = mediaModel.mediaVid(); 
+                    mediaSection.append(userCardDOM);
+                }
             }   
         });
     })

@@ -1,5 +1,6 @@
 #contact_modal {
     display: none;
+
 }
 
 .photograph-header {
@@ -29,6 +30,9 @@
 }
 
 .modal {
+    position: fixed;
+    top: 5em;
+    right: 25em;
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;
