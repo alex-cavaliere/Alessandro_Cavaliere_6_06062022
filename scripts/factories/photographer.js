@@ -5,7 +5,6 @@ function photographerFactory(data) {
         const article = document.createElement( 'article' );
         const link = document.createElement('a');
         link.setAttribute("href", "./photographer.html?id="+ photographer.id);
-        link.setAttribute("aria-label", photographer.name);
         link.classList.add('link');
         const img = document.createElement( 'img' );
         img.setAttribute("src", photographer.portrait);
@@ -37,6 +36,10 @@ function photographerFactory(data) {
         const btn = document.querySelector('.contact_button');
         const headerContent = document.createElement('div');
         const prix = document.createElement('div');
+        const modal = document.querySelector('.modal-header')
+        const modalH3 = document.querySelector('h3');
+        modalH3.textContent = photographer.name;
+        modal.appendChild(modalH3);
         prix.classList.add('price');
         prix.textContent = photographer.price + "€/Jour";
         headerContent.classList.add('header-content');
@@ -128,7 +131,8 @@ function mediasFactory(data){
         heart.append(i);
         caption.append(p);
         caption.append(heart);
-        a.setAttribute("href", "#");
+        a.setAttribute("href", vid._videopath);
+        a.setAttribute("aria-label", "link");
         a.appendChild(video);
         figure.append(a);
         figure.append(caption);

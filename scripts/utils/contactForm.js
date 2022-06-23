@@ -10,3 +10,10 @@ function closeModal() {
     modal.setAttribute("aria-hidden", "true");
     modal.style.display = "none";
 }
+const open = document.querySelector('.contact_button');
+open.addEventListener('click', displayModal);
+
+const close = document.querySelector(".close");
+close.addEventListener('click', closeModal);
+
+
