@@ -1,19 +1,32 @@
+const closeForm = document.querySelector(".close");
+const openForm = document.querySelector('.contact_button');
+const modal = document.querySelector("#contact_modal");
+const main = document.querySelector("#main");
+
 function displayModal() {
-    const modal = document.getElementById("contact_modal");
     modal.setAttribute("aria-hidden", "false");
     modal.setAttribute("role", "dialog");
 	modal.style.display = "block";
 }
 
 function closeModal() {
-    const modal = document.getElementById("contact_modal");
     modal.setAttribute("aria-hidden", "true");
     modal.style.display = "none";
 }
-const open = document.querySelector('.contact_button');
-open.addEventListener('click', displayModal);
 
-const close = document.querySelector(".close");
-close.addEventListener('click', closeModal);
+openForm.addEventListener('click', displayModal);
+
+closeForm.addEventListener('click', closeModal);
+
+main.addEventListener('keydown', function(e){
+    if (e.keyCode === 27){
+        closeModal();
+    }
+})
+modal.addEventListener('keydown', function(e){
+    if (e.keyCode === 27){
+        closeModal();
+    }
+})
 
 

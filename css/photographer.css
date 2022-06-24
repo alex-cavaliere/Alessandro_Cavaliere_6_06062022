@@ -58,7 +58,7 @@ a{
 
 .modal header h2, .modal header h3 {
     margin: 0;
-    font-size: 64px;
+    font-size: 3.5em;
     font-weight: normal;
     text-align: justify;
 }
@@ -174,5 +174,3 @@ textarea{
     font-weight: 500;
     font-size: 24px;
 }
-
-
