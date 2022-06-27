@@ -35,14 +35,14 @@ a{
 .modal {
     position: absolute;
     top: 2em;
-    right: 25em;
+    left: 30em;
+    right: 30em;
     border-radius: 5px;
     background-color: #DB8876;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 35px;
-    margin: auto;
 }
 
 .modal header {
@@ -175,30 +175,30 @@ textarea{
     font-size: 24px;
 }
 .lightbox{
+    display: none;
     position: fixed;
     top: 0;
     padding-top: 5em;
     background-color: white;
-    height: 100vh;
 }
 .carousel{
     display: flex;
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
-    max-width: 60%;
+    max-width: 90%;
 }
 .carousel img{
-   max-width: 100%;
+   width: 100%;
 }
 .container{
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 80%;
+    max-width: 60%;
     margin: auto;
 }
-.close{
+.close-lightbox{
     position: absolute;
     right: 10em;
 }

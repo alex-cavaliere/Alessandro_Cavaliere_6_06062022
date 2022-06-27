@@ -30,16 +30,19 @@
           </div>
           <img class="close" src="assets/icons/close.svg" alt="close contact form"/>
         </header>
-				<form>
+				<form name="contact"
+        action="photographer.html"
+        method="get"
+        onsubmit="return validateModal();">
 					<div class="form-input">
 						<label for="first">Prénom</label>
-						<input type="text" id="first" name="first"/>
+						<input type="text" id="first" name="modal-input"/>
             <label for="last">Nom</label>
-						<input type="text" id="last" name="last"/>
+						<input type="text" id="last" name="modal-input"/>
             <label for="email">Email</label>
-						<input type="email" id="email" name="email"/>
+						<input type="email" id="email" name="modal-input"/>
             <label for="message">Votre message</label>
-            <textarea name="message" id="message" cols="40"></textarea>
+            <textarea name="modal-input" id="message" cols="40" required></textarea>
 					</div>
           <button class="contact_button" aria-label="send">Envoyer</button>
 				</form>
@@ -47,7 +50,7 @@
 		</div>
 
     <div class="lightbox" role="dialog" aria-label="image closeup view">
-      <img class="close" src="assets/icons/close-lightbox.svg" alt="lilac breasted roller"/>
+      <img class="close-lightbox" src="assets/icons/close-lightbox.svg" alt="lilac breasted roller"/>
       <div class="container">
         <div role="button" class="controls controls-left">
           <span class="img prev-image">
@@ -56,7 +59,7 @@
           <p class="sr-only">Previous</p>
         </div>
         <div class="carousel">
-          <img src="/assets/photographers/Mimi/Event_BenevidesWedding.jpg" alt="">
+          <img src="/assets/photographers/Mimi/Animals_Rainbow.jpg" alt="">
           <p class="caption">arc en ciel</p>
         </div>
         <div role="button" class="controls controls-right">
