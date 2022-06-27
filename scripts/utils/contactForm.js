@@ -7,7 +7,7 @@ const main = document.querySelector("#main");
 function displayModal() {
     modal.setAttribute("aria-hidden", "false");
     modal.setAttribute("role", "dialog");
-	modal.style.display = "block";
+	modal.style.display = "flex";
 }
 
 function closeModal() {

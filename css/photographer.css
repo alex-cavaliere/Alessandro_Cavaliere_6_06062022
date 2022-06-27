@@ -1,5 +1,6 @@
 #contact_modal {
     display: none;
+    justify-content: center;
 
 }
 a{
@@ -35,8 +36,6 @@ a{
 .modal {
     position: absolute;
     top: 2em;
-    left: 30em;
-    right: 30em;
     border-radius: 5px;
     background-color: #DB8876;
     display: flex;
@@ -180,25 +179,40 @@ textarea{
     top: 0;
     padding-top: 5em;
     background-color: white;
+    width: 100%;
+    height: 100%;
 }
 .carousel{
     display: flex;
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
-    max-width: 90%;
+    width: 100%;
+    height: 100%;
 }
 .carousel img{
-   width: 100%;
+    height: 100%;
+    width: 100%;
+    object-fit: scale-down;
+    margin: auto;
 }
+
 .container{
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 60%;
+    max-width: fit-content;
+    height: 80%;
     margin: auto;
+    color: #901C1C;
 }
-.close-lightbox{
-    position: absolute;
-    right: 10em;
+.controls:hover{
+    cursor: pointer;
 }
+.controls-close{
+    position: relative;
+    bottom: 17.5em;
+    right: 2em;
+}
+
+
