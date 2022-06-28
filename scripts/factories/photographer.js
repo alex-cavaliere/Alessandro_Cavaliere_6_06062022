@@ -71,40 +71,50 @@ function photographerFactory(data) {
     return { getUserCardDOM, user }
 }
 function mediasFactory(data){
+    const media = new Media(data);
+    const body = document.querySelector('.photograph-body');
+    const figure = document.createElement('div');
+    figure.classList.add('card');
+    const a = document.createElement('a');
+    const caption = document.createElement('div');
+    caption.classList.add('caption');
+    const p = document.createElement('p');
+    const likes = document.createElement('p');
+    likes.textContent = media._likes;
+    const i = document.createElement('i');
+    i.classList.add('fa-regular', 'fa-heart');
+    const heart = document.createElement('span');
+    heart.append(likes);
+    heart.append(i);
+
+    function increment(){
+        likes.textContent++;
+        i.classList.remove('fa-regular', 'fa-heart');
+        i.classList.add('fa-solid', 'fa-heart');
+    }
+    function decrement(){
+        likes.textContent--;
+        i.classList.remove('fa-solid', 'fa-heart');
+        i.classList.add('fa-regular', 'fa-heart');
+    }
+
+    i.addEventListener('click', function(e){
+        e.preventDefault();
+        console.log(i.className);
+        if (i.className == "fa-regular fa-heart"){
+            return increment();
+        }
+        if(i.className == "fa-solid fa-heart"){
+            return decrement();
+        }
+    });
     // ici j'ai stocké 2 fonctions pour les Template des images et videos que 
     // j'ai associé à la Factory.
     function imgTemplate() {
         const picture = new MediaFactory(data, 'img');
-        const body = document.querySelector('.photograph-body');
-        const figure = document.createElement('div');
-        const a = document.createElement('a');
-        figure.classList.add('card');
         const img = document.createElement('img');
-        const caption = document.createElement('div');
-        caption.classList.add('caption');
-        const p = document.createElement('p');
         p.textContent = picture._title;
-        const likes = document.createElement('p');
-        likes.textContent = picture._likes;
-        const heart = document.createElement('span');
-        const i = document.createElement('i');
-        i.classList.add('fa-regular');
-        i.classList.add('fa-heart');
-        heart.append(likes);
-        heart.append(i);
-        
-        function increment(){
-            likes.textContent = picture._likes++;
-        }
-        function decrement(){
-            likes.textContent = picture._likes--;
-        }
-
-        i.addEventListener('click', function(e){
-            e.preventDefault();
-            increment();
-            decrement();
-        });
+        // function qui gere les nombres des likes
         caption.append(p);
         caption.append(heart);
         img.classList.add('thumbnail');
@@ -120,11 +130,6 @@ function mediasFactory(data){
     }
     function videoTemplate() {
         const vid = new MediaFactory(data, 'video');
-        const body = document.querySelector('.photograph-body');
-        const figure = document.createElement('div');
-        const a = document.createElement('a');
-        figure.classList.add('card');
-        const caption = document.createElement('div');
         const video = document.createElement('video');
         const source = document.createElement('source');
         source.setAttribute("src", vid._videopath);
@@ -132,20 +137,7 @@ function mediasFactory(data){
         video.classList.add('thumbnail');
         video.controls = true;
         video.appendChild(source);
-        caption.classList.add('caption');
-        const p = document.createElement('p');
         p.textContent = vid._title;
-        const likes = document.createElement('p');
-        likes.textContent = vid._likes;
-        const heart = document.createElement('span');
-        const i = document.createElement('i');
-        i.classList.add('fa-regular');
-        i.classList.add('fa-heart');
-        heart.append(likes);
-        heart.append(i);
-        heart.addEventListener('click', function(){
-            likes.textContent = vid._likes++;
-        });
         caption.append(p);
         caption.append(heart);
         a.classList.add('media-link');
