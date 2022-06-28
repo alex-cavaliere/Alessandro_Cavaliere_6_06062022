@@ -1,3 +1,5 @@
+
+
 const lightboxTemplate = 
 `<div class="lightbox" role="dialog" aria-label="image closeup view">
     <div class="container">

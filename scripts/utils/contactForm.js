@@ -1,8 +1,8 @@
-const closeForm = document.querySelector(".close");
+const closeForm = document.querySelectorAll(".close");
 const openForm = document.querySelector('.contact_button');
 const modal = document.querySelector("#contact_modal");
+const lightbox = document.querySelector("#lightbox");
 const main = document.querySelector("#main");
-
 
 function displayModal() {
     modal.setAttribute("aria-hidden", "false");
@@ -13,11 +13,13 @@ function displayModal() {
 function closeModal() {
     modal.setAttribute("aria-hidden", "true");
     modal.style.display = "none";
+    lightbox.style.display = "none";
 }
 
 openForm.addEventListener('click', displayModal);
 
-closeForm.addEventListener('click', closeModal);
+closeForm.forEach((close) => close.addEventListener('click', closeModal));
+
 
 main.addEventListener('keydown', function(e){
     if (e.keyCode === 27){
@@ -50,3 +52,6 @@ function validateModal(){
         checkForm();
     })
 }
+
+
+

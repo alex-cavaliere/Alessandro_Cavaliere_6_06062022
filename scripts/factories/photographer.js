@@ -92,11 +92,25 @@ function mediasFactory(data){
         i.classList.add('fa-heart');
         heart.append(likes);
         heart.append(i);
+        
+        function increment(){
+            likes.textContent = picture._likes++;
+        }
+        function decrement(){
+            likes.textContent = picture._likes--;
+        }
+
+        i.addEventListener('click', function(e){
+            e.preventDefault();
+            increment();
+            decrement();
+        });
         caption.append(p);
         caption.append(heart);
         img.classList.add('thumbnail');
         img.setAttribute("src", picture._imagepath);
         img.setAttribute("alt", picture._title);
+        a.classList.add('media-link');
         a.setAttribute("href", picture._imagepath);
         a.appendChild(img);      
         figure.append(a);
@@ -129,8 +143,12 @@ function mediasFactory(data){
         i.classList.add('fa-heart');
         heart.append(likes);
         heart.append(i);
+        heart.addEventListener('click', function(){
+            likes.textContent = vid._likes++;
+        });
         caption.append(p);
         caption.append(heart);
+        a.classList.add('media-link');
         a.setAttribute("href", vid._videopath);
         a.setAttribute("aria-label", "link");
         a.appendChild(video);
