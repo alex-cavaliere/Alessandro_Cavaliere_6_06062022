@@ -50,19 +50,21 @@ async function getMedias(){
             if(media.photographerId === Id){
                 //console.log(media.hasOwnProperty('image'))
                 //je verifie si c'est une image ou un video.
+                const mediaModel = mediasFactory(media);
                 let userCardDOM;
                 if(media.hasOwnProperty('image')){
                     medias.map(media => new MediaFactory(media, 'img'))
-                    const mediaModel = mediasFactory(media);
                     userCardDOM = mediaModel.imgTemplate(); 
                 }else if(media.hasOwnProperty('video')){
                     medias.map(media => new MediaFactory(media, 'video'))
-                    const mediaModel = mediasFactory(media);
                     userCardDOM = mediaModel.videoTemplate(); 
                 }
                 mediaSection.append(userCardDOM);
             }   
         });
+    })
+    .catch(function(err){
+        console.log(err);
     })
 }
 async function init() {
