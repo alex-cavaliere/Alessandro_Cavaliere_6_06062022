@@ -72,8 +72,7 @@ function photographerFactory(data) {
 }
 function mediasFactory(data){
     const media = new Media(data);
-    const prova = new Lightbox(data);
-    console.log(prova);
+    const lightbox = new Lightbox(data);
     const body = document.querySelector('.photograph-body');
     const figure = document.createElement('div');
     figure.classList.add('card');
@@ -125,7 +124,7 @@ function mediasFactory(data){
         img.setAttribute("alt", picture._title);
         a.addEventListener('click', function(e){
             e.preventDefault();
-            prova.createLightbox();
+            lightbox.createImgLightbox();
         })
         a.appendChild(img);      
         figure.append(a);
@@ -147,6 +146,10 @@ function mediasFactory(data){
         caption.append(heart);
         a.setAttribute("href", vid._videopath);
         a.setAttribute("aria-label", "link");
+        a.addEventListener('click', function(e){
+            e.preventDefault();
+            lightbox.createVidLightbox();
+        })
         a.appendChild(video);
         figure.append(a);
         figure.append(caption);

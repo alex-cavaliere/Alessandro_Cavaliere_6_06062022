@@ -62,11 +62,16 @@ class Video extends Media{
     }
 } 
 
+const container = document.querySelector('#lightbox');
+const carousel = document.querySelector('.carousel');
+
 class Lightbox extends Media{
     constructor(data){
         super(data)
         this._image = data.image
+        this._video = data.video
         this._imgpath = `./assets/photographers/thumbnails/${this._image}`
+        this._vidpath = `./assets/photographers/thumbnails/${this._video}`
     }
     get image(){
         return this._image;
@@ -74,43 +79,37 @@ class Lightbox extends Media{
     get imgpath(){
         return this._imgpath;
     }
-    createLightbox(){
-        const main = document.querySelector('main');
-        const lightbox = document.createElement('div');
-        lightbox.setAttribute('id', 'lightbox');
-        lightbox.setAttribute('role', 'dialog'),
-        lightbox.setAttribute('aria-label', 'image closeup view');
+    get video(){
+        return this._video;
+    }
+    get vidpath(){
+        return this._vidpath;
+    }
+    createImgLightbox(){
 
-        const lightboxTemplate = 
+        const imageTemplate = 
         `
-            <div class="container">
-                <div role="button" class="controls controls-left">
-                    <span class="img prev-image">
-                        <img src="assets/icons/prev-icon.svg" alt="previous">
-                    </span>
-                    <p class="sr-only">Previous</p>
-                </div>
-                <div class="carousel">
-                    <img src=${this._imgpath} alt="">
-                    <p class="caption">${this._title}</p>
-                </div>
-                <div role="button" class="controls controls-right">
-                    <span class="img next-image">
-                        <img src="assets/icons/next-icon.svg" alt="next">
-                    </span>
-                    <p class="sr-only">Next</p>
-                </div>
-                <div role="button" class="controls controls-close">
-                    <span class="img close-image">
-                    <img class="close-lightbox" src="assets/icons/close-lightbox.svg" alt="lilac breasted roller" onclick="closeModal()"/>
-                    </span>
-                    <p class="sr-only">Close</p>
-                </div>
-            </div>
+        <img src=${this._imgpath} alt="${this._title}">
+        <p class="caption">${this._title}</p>
+            
         `;
-        lightbox.innerHTML = lightboxTemplate;
-        main.append(lightbox);
-        return lightbox;
+        container.style.display = 'flex';
+        carousel.innerHTML = imageTemplate;
+        return carousel;
+    }
+    createVidLightbox(){
+       
+        const videoTemplate = 
+        `
+        <video controls>
+            <source src="${this._vidpath}" type="video/mp4">
+        </video>
+        <p class="caption">${this._title}</p>
+
+        `;
+        container.style.display = 'flex';
+        carousel.innerHTML = videoTemplate;
+        return carousel;
     }
 }
 
