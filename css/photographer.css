@@ -156,7 +156,10 @@ textarea{
     align-items: center;
     justify-content: space-between;
 }
-.header-content .price{
+.tot-likes-icon{
+    font-size: 0.9em
+}
+.price-block{
     position: fixed;
     display: flex;
     right: 0;
@@ -165,7 +168,7 @@ textarea{
     width: 376px;
     border-radius: 5px;
     background: #DB8876;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     font-weight: 500;
     font-size: 24px;

@@ -19,29 +19,34 @@ function photographerFactory(data) {
         const slogan = document.createElement('div');
         slogan.classList.add('tagline');
         slogan.textContent = photographer.tagline;
-        const prix = document.createElement('div');
-        prix.classList.add('price');
-        prix.textContent = photographer.price + "€/Jour";
+        const photographerPrice = document.createElement('div');
+        photographerPrice.classList.add('price');
+        photographerPrice.textContent = photographer.price + "€/Jour";;
         link.appendChild(img);
         link.appendChild(h2);
         article.append(link);
         article.appendChild(ville);
         article.appendChild(region);
         article.appendChild(slogan);
-        article.appendChild(prix);
+        article.appendChild(photographerPrice);
         return (article);
     }
     function user(){
         const header = document.querySelector('.photograph-header');
         const btn = document.querySelector('.contact_button');
         const headerContent = document.createElement('div');
-        const prix = document.createElement('div');
+        const priceCard = document.createElement('div');
         const modal = document.querySelector('.modal-header')
         const modalH3 = document.querySelector('h3');
         modalH3.textContent = photographer.name;
         modal.appendChild(modalH3);
-        prix.classList.add('price');
+        priceCard.classList.add('price-block');
+        const prix = document.createElement('div');
+        prix.classList.add('photograph-price');
         prix.textContent = photographer.price + "€/Jour";
+        const totLikes = document.createElement('div');
+        totLikes.classList.add('photograph-likes');
+        priceCard.append(totLikes, prix);
         headerContent.classList.add('header-content');
         const h1 = document.createElement('h1');
         const slogan = document.createElement('div');
@@ -61,7 +66,7 @@ function photographerFactory(data) {
         bio.append(h1);
         bio.append(country);
         bio.append(slogan);
-        headerContent.append(prix);
+        headerContent.append(priceCard);
         headerContent.appendChild(bio);
         headerContent.append(img);
         headerContent.append(btn)
@@ -87,6 +92,7 @@ function mediasFactory(data){
     const i = document.createElement('i');
     i.classList.add('fa-regular', 'fa-heart');
     const heart = document.createElement('span');
+    heart.classList.add('heart');
     heart.append(likes);
     heart.append(i);
 

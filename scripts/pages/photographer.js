@@ -45,21 +45,38 @@ async function getMedias(){
         const mediaSection = document.querySelector(".photograph-body");
         const Params = (new URL(document.location).searchParams);
         const Id = Number(Params.get("id"));
+
+        // somma likes
+        
+        let sum = 0;
+
         medias
         .forEach((media) => {
+            // controllo se i media coincidono con l'id del fotografo
             if(media.photographerId === Id){
-                //console.log(media.hasOwnProperty('image'))
+                // creo e aggiungo la somma dei likes al cratellino del prezzo 
+                sum += media.likes;
+                const likesBlock = document.querySelector(".photograph-likes");
+                const icon = document.createElement('i');
+                icon.classList.add('tot-likes-icon' ,'fa-solid', 'fa-heart');
+                likesBlock.textContent = sum + " ";
+                likesBlock.append(icon);
+                
                 //je verifie si c'est une image ou un video.
-                const mediaModel = mediasFactory(media);
-                let userCardDOM;
-                if(media.hasOwnProperty('image')){
-                    medias.map(media => new MediaFactory(media, 'img'))
-                    userCardDOM = mediaModel.imgTemplate(); 
-                }else if(media.hasOwnProperty('video')){
-                    medias.map(media => new MediaFactory(media, 'video'))
-                    userCardDOM = mediaModel.videoTemplate(); 
+                // creazione slides carousel
+                function nextLightbox(){
+                    console.log(media);
                 }
-                mediaSection.append(userCardDOM);
+                next.addEventListener("click", nextLightbox);
+                
+                const mediaModel = mediasFactory(media);
+                let mediaCardDOM;
+                if(media.hasOwnProperty('image')){
+                    mediaCardDOM = mediaModel.imgTemplate();
+                }else if(media.hasOwnProperty('video')){
+                    mediaCardDOM = mediaModel.videoTemplate(); 
+                }
+                mediaSection.append(mediaCardDOM);
             }   
         });
     })

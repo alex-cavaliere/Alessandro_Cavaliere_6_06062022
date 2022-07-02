@@ -2,6 +2,10 @@ const closeForm = document.querySelectorAll(".close");
 const openForm = document.querySelector('.contact_button');
 const modal = document.querySelector("#contact_modal");
 const lightbox = document.querySelector("#lightbox");
+
+// creare bottoni carousel
+
+const next = document.querySelector(".controls-right");
 const main = document.querySelector("#main");
 
 function displayModal() {
