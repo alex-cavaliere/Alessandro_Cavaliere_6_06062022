@@ -75,6 +75,7 @@ function photographerFactory(data) {
     }
     return { getUserCardDOM, user }
 }
+
 function mediasFactory(data){
     const media = new Media(data);
     const lightbox = new Lightbox(data);
@@ -96,13 +97,22 @@ function mediasFactory(data){
     heart.append(likes);
     heart.append(i);
 
+    const totLikes = document.querySelector('.photograph-likes');
+    const icon = document.createElement('i');
+    icon.classList.add('tot-likes-icon' ,'fa-solid', 'fa-heart');
+    totLikes.append(icon);
+
     function increment(){
         likes.textContent++;
+        totLikes.textContent++;
+        totLikes.append(icon);
         i.classList.remove('fa-regular', 'fa-heart');
         i.classList.add('fa-solid', 'fa-heart');
     }
     function decrement(){
         likes.textContent--;
+        totLikes.textContent--;
+        totLikes.append(icon);
         i.classList.remove('fa-solid', 'fa-heart');
         i.classList.add('fa-regular', 'fa-heart');
     }

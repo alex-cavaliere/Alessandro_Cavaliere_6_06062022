@@ -173,6 +173,9 @@ textarea{
     font-weight: 500;
     font-size: 24px;
 }
+.photograph-likes i{
+    margin-left: 0.5em;
+}
 #lightbox{
     display: none;
     position: fixed;

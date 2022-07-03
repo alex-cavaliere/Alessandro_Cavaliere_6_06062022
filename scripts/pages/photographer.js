@@ -57,11 +57,7 @@ async function getMedias(){
                 // creo e aggiungo la somma dei likes al cratellino del prezzo 
                 sum += media.likes;
                 const likesBlock = document.querySelector(".photograph-likes");
-                const icon = document.createElement('i');
-                icon.classList.add('tot-likes-icon' ,'fa-solid', 'fa-heart');
-                likesBlock.textContent = sum + " ";
-                likesBlock.append(icon);
-                
+                likesBlock.textContent = sum;
                 //je verifie si c'est une image ou un video.
                 // creazione slides carousel
                 function nextLightbox(){
@@ -84,6 +80,18 @@ async function getMedias(){
         console.log(err);
     })
 }
+
+/*function totLikes(data){
+    let sum;
+    sum += data.likes;
+    const likesBlock = document.querySelector(".photograph-likes");
+    const icon = document.createElement('i');
+    icon.classList.add('tot-likes-icon' ,'fa-solid', 'fa-heart');
+    likesBlock.textContent = sum + " ";
+    likesBlock.append(icon);
+    return likesBlock;
+}*/
+
 async function init() {
     // Récupère les datas des photographes
     await getPhotographers();
