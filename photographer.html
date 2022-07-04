@@ -3,6 +3,8 @@
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/c7d3dcb5af.js" crossorigin="anonymous"></script>
@@ -21,14 +23,16 @@
       <div>
         <form class="filter-form" action="#" method="post">
           <label for="filter-select">triér par</label>
-          <div name="filter-select" id="filter-select" class="contact_button">
-            <span>Popularité</span>
-            <div id="filter-container" class="contact_button hide">
+          <div name="filter-select" id="filter-select">
+            <div class="filter-btn contact_button">
+              <span class="selected">Popularité</span>
+              <span class="chevron"><i class="fa-solid fa-chevron-down"></i></span>
+            </div>
+            <div class="filter-container hide">
               <a href="#" class="filter-item" role="option" data-value="popularité">popularité</a>
               <a href="#" class="filter-item" role="option" data-value="date">date</a>
               <a href="#" class="filter-item" role="option" data-value="titre">titre</a>
             </div>
-            <span><i class="fa-solid fa-chevron-down"></i></span>
           </div>
         </form>
       </div>

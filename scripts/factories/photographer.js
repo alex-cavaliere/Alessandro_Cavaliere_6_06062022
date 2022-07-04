@@ -174,3 +174,4 @@ function mediasFactory(data){
     }
     return { imgTemplate, videoTemplate }
 }
+

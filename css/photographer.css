@@ -1,3 +1,7 @@
+body{
+    margin: auto;
+    flex-wrap: wrap;
+}
 #contact_modal {
     display: none;
     justify-content: center;
@@ -7,7 +11,7 @@ a{
     text-decoration: none;
 }
 .hide{
-    display: none;
+    opacity: 0;
 }
 
 .photograph-header {
@@ -22,20 +26,17 @@ a{
     margin: 0 100px;
 }
 
-.contact_button{
+.contact_button, .filter-container{
     font-size: 18px;
     font-weight: bold;
     color: white;
-    width: 170px;
+    width: 180px;
     height: 70px;
     border: none;
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
     order: 2;
-}
-option{
-    border-radius: 10px;
 }
 .modal {
     position: fixed;
@@ -83,33 +84,32 @@ form {
 }
 #filter-select{
     display: flex;
-    flex-direction: row-reverse;
-    padding: 11px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6em;
+    padding: 3px;
 }
-#filter-select span:nth-child(1){
-    font-size: 1.2em;
-    margin-right: 1.6em;
-    margin-top: 1em;
+#filter-select .filter-btn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 10em;
 }
-#filter-select span{
-    position: absolute;
-    margin-top: 1.5em;
-    z-index: 1;
-} 
-
-#filter-container{
-    position: relative;
-    left: 0.65em;
-    transform: translateY(50%);
-    min-width: 193px;
-    padding-top: 1em;
-    padding-bottom: 1em;
+.filter-container{
+    display: flex;
+    flex-direction: column;
+    text-indent: 1em;
+    border-radius: 0 0 5px 5px;
+}
+.chevron-rotate{
+    transform: rotate(180deg);
 }
 
 .filter-item{
     text-decoration: none;
     color: #fff;
-    margin: auto;
 }
 
 form label {
@@ -117,7 +117,7 @@ form label {
     font-size: 2em;
 }
 
-form div {
+form .form-input {
     display: flex;
     flex-direction: column;
     width: 100%;

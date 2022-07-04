@@ -1,13 +1,10 @@
 const closeForm = document.querySelectorAll(".close");
-console.log(closeForm)
 const body = document.querySelector('body');
 const openForm = document.querySelector('.contact_button');
 const modal = document.querySelector("#contact_modal");
 const lightbox = document.querySelector("#lightbox");
 
 // creare bottoni carousel
-
-const next = document.querySelector(".controls-right");
 const main = document.querySelector("#main");
 
 function displayModal() {
@@ -24,7 +21,7 @@ function closeModal() {
 
 //filtri
 const filter = document.querySelector('#filter-select');
-const options = document.querySelector('#filter-container');
+const options = document.querySelector('.filter-container');
 
 
 filter.addEventListener("click", function(e){
