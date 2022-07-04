@@ -6,6 +6,9 @@
 a{
     text-decoration: none;
 }
+.hide{
+    display: none;
+}
 
 .photograph-header {
     background-color: #FAFAFA;
@@ -19,11 +22,10 @@ a{
     margin: 0 100px;
 }
 
-.contact_button {
-    font-size: 20px;
+.contact_button{
+    font-size: 18px;
     font-weight: bold;
     color: white;
-    padding: 11px;
     width: 170px;
     height: 70px;
     border: none;
@@ -31,6 +33,9 @@ a{
     border-radius: 5px;
     cursor: pointer;
     order: 2;
+}
+option{
+    border-radius: 10px;
 }
 .modal {
     position: fixed;
@@ -66,6 +71,45 @@ form {
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
+}
+.filter-form  {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 300px;
+    justify-content: space-between;
+    font-size: 0.6em;
+    margin: 20px 130px;
+}
+#filter-select{
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 11px;
+}
+#filter-select span:nth-child(1){
+    font-size: 1.2em;
+    margin-right: 1.6em;
+    margin-top: 1em;
+}
+#filter-select span{
+    position: absolute;
+    margin-top: 1.5em;
+    z-index: 1;
+} 
+
+#filter-container{
+    position: relative;
+    left: 0.65em;
+    transform: translateY(50%);
+    min-width: 193px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.filter-item{
+    text-decoration: none;
+    color: #fff;
+    margin: auto;
 }
 
 form label {
@@ -185,6 +229,7 @@ textarea{
     background-color: white;
     width: 100%;
     height: 90%;
+    z-index: 10;
 }
 .carousel{
     display: flex;

@@ -1,4 +1,6 @@
 const closeForm = document.querySelectorAll(".close");
+console.log(closeForm)
+const body = document.querySelector('body');
 const openForm = document.querySelector('.contact_button');
 const modal = document.querySelector("#contact_modal");
 const lightbox = document.querySelector("#lightbox");
@@ -20,21 +22,31 @@ function closeModal() {
     lightbox.style.display = "none";
 }
 
+//filtri
+const filter = document.querySelector('#filter-select');
+const options = document.querySelector('#filter-container');
+
+
+filter.addEventListener("click", function(e){
+    e.preventDefault();
+    if(options.classList.contains('hide')){
+        options.classList.remove('hide');
+    }else{
+        options.classList.add('hide');
+    }
+})
+
+
 openForm.addEventListener('click', displayModal);
 
 closeForm.forEach((close) => close.addEventListener('click', closeModal));
 
+body.addEventListener('keydown', function(e){
+    if (e.key === "Escape"){
+        closeModal();
+    }
+})
 
-main.addEventListener('keydown', function(e){
-    if (e.keyCode === 27){
-        closeModal();
-    }
-})
-modal.addEventListener('keydown', function(e){
-    if (e.keyCode === 27){
-        closeModal();
-    }
-})
 
 const modalbg = document.querySelector(".modal");
 const firstName = document.querySelector("#first");
