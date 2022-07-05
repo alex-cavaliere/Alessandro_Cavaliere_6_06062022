@@ -78,15 +78,17 @@ form {
     flex-direction: row;
     align-items: center;
     max-width: 300px;
+    max-height: 200px;
     justify-content: space-between;
     font-size: 0.6em;
-    margin: 20px 130px;
+    margin: 0px 130px;
 }
 #filter-select{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transform: translateY(25%);
     margin-top: 6em;
     padding: 3px;
 }
@@ -100,7 +102,7 @@ form {
 .filter-container{
     display: flex;
     flex-direction: column;
-    text-indent: 1em;
+    height: auto;
     border-radius: 0 0 5px 5px;
 }
 .chevron-rotate{
@@ -109,6 +111,12 @@ form {
 
 .filter-item{
     text-decoration: none;
+    border-top: 2px solid white;
+    width: 90%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-indent: 0.5em;
+    margin: auto;
     color: #fff;
 }
 
@@ -176,6 +184,7 @@ textarea{
 }
 .photograph-body .thumbnail{
     object-fit: cover;
+    object-position: top;
     height: 300px;
     width: 350px;
     left: 0px;

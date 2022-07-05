@@ -23,7 +23,6 @@ function closeModal() {
 const filter = document.querySelector('#filter-select');
 const options = document.querySelector('.filter-container');
 
-
 filter.addEventListener("click", function(e){
     e.preventDefault();
     if(options.classList.contains('hide')){
@@ -32,6 +31,7 @@ filter.addEventListener("click", function(e){
         options.classList.add('hide');
     }
 })
+
 
 
 openForm.addEventListener('click', displayModal);

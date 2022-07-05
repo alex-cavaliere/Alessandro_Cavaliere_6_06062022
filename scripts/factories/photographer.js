@@ -75,10 +75,20 @@ function photographerFactory(data) {
     }
     return { getUserCardDOM, user }
 }
-
+let arr = [];
 function mediasFactory(data){
     const media = new Media(data);
     const lightbox = new Lightbox(data);
+    
+    /*function filterTitle(figure){
+        arr.push(media.title)
+        let filteredTitle = arr.sort()
+        console.log(filteredTitle)
+        if(filteredTitle){
+            return figure;
+        }
+    }*/
+
     const body = document.querySelector('.photograph-body');
     const figure = document.createElement('div');
     figure.classList.add('card');

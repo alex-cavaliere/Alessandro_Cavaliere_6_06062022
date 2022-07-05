@@ -5,6 +5,37 @@ let medias;
 let media;
 let currentMedias = [];
 
+// controls du carousel
+
+prev.addEventListener("click", function(){
+    let current_img = document.getElementById('current_img');
+    let lastId = current_img.getAttribute('data-id');
+    let index = currentMedias.findIndex((e) => e.id === parseInt(lastId));
+    if(index > 0){
+        let currentMedia = currentMedias[index - 1];
+        const lightbox = new Lightbox(currentMedia);
+        if (currentMedia.hasOwnProperty('image')){
+            lightbox.createImgLightbox();
+        }else if(currentMedia.hasOwnProperty('video')){
+            lightbox.createVidLightbox();
+        }
+    }
+})
+next.addEventListener("click", function(){
+    let current_img = document.getElementById('current_img');
+    let lastId = current_img.getAttribute('data-id');
+    let index = currentMedias.findIndex((e) => e.id === parseInt(lastId));
+    if(index < currentMedias.length){
+        let currentMedia = currentMedias[index + 1];
+        const lightbox = new Lightbox(currentMedia);
+        if (currentMedia.hasOwnProperty('image')){
+            lightbox.createImgLightbox();
+        }else if(currentMedia.hasOwnProperty('video')){
+            lightbox.createVidLightbox();
+        }
+    }
+})
+
 async function getPhotographers() {
     // Penser à remplacer par les données récupérées dans le json
     fetch("./data/photographers.json")
@@ -46,35 +77,17 @@ async function getMedias(){
     .then(function(data){
         //
         medias = data.media;
-        //const mediaImg = medias.map(media => new MediaFactory(media, 'img'));
-        //const mediaVideo = medias.map(media => new MediaFactory(media, 'video'));
-        //const med = mediaImg.concat(mediaVideo);
-        //console.log(med);
         const mediaSection = document.querySelector(".photograph-body");
         const Params = (new URL(document.location).searchParams);
         const Id = Number(Params.get("id"));
 
         // somma likes
-        
         let sum = 0;
-        /*next.addEventListener("click", function(){
-            media = element;
-            let index = currentMedias.indexOf(element);
-            console.log(index)
-        });*/
-
-      
-
         medias
         .forEach((element) => {
             // controllo se i media coincidono con l'id del fotografo
         
             if(element.photographerId === Id){
-
-                next.addEventListener('click', function(){
-                    nextMedia(element)
-                }, false);
-
                 // creo e aggiungo la somma dei likes al cratellino del prezzo
                 currentMedias.push(element);
                 sum += element.likes;
@@ -99,9 +112,6 @@ async function getMedias(){
     })
 }
 
-function nextMedia(element){
-    console.log(element);
-}
 
 async function init() {
     // Récupère les datas des photographes

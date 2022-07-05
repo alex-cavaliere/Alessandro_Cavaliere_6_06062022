@@ -89,7 +89,7 @@ class Lightbox extends Media{
 
         const imageTemplate = 
         `
-        <img src=${this._imgpath} alt="${this._title}">
+        <img id="current_img" data-id="${this._id}" src=${this._imgpath} alt="${this._title}">
         <p class="caption">${this._title}</p>
             
         `;
@@ -101,7 +101,7 @@ class Lightbox extends Media{
        
         const videoTemplate = 
         `
-        <video controls>
+        <video id="current_img" data-id="${this._id}" controls>
             <source src="${this._vidpath}" type="video/mp4">
         </video>
         <p class="caption">${this._title}</p>
@@ -112,5 +112,68 @@ class Lightbox extends Media{
         return carousel;
     }
 }
+
+/*class FilterForm extends Media {
+    constructor(data) {
+        super(data)
+        this.data = data
+
+        this.wrapper = document.createElement('div')
+        this.filterFormWrapper = document.querySelector('.form-modal')
+        this.cardWrapper = document.querySelector('.photograph-body')
+    }
+
+    async filterMovies(actor) {
+        this.clearMoviesWrapper()
+
+        // Vous devrez ajouter votre Adapter ici 
+        //const FilterLib = new FilterV1(this.Movies, actor)
+        //const FilteredMovies = await FilterLib.filterByActor()
+        const FilterLib = new FilterMoviesAdapter(this.Movies, actor)
+        const FilteredMovies = await FilterLib.filterByActor()
+
+        FilteredMovies.forEach(Movie => {
+            const Template = new MovieCard(Movie)
+            this.$moviesWrapper.appendChild(Template.createMovieCard())
+        })
+    }
+
+    onChangeFilter() {
+        this.wrapper
+            .querySelector('form')
+            .addEventListener('change', e => {
+                const actor = e.target.value
+                this.filterMovies(actor)
+            })
+    }
+
+    clearMoviesWrapper() {
+        this.cardWrapper.innerHTML = ""
+    }
+
+    render() {
+        const filterForm = `
+            <form class="filter-form" action="#" method="post">
+                <label for="filter-select">triér par</label>
+                <div name="filter-select" id="filter-select">
+                    <div class="filter-btn contact_button">
+                        <span class="selected">Popularité</span>
+                        <span class="chevron"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <div class="filter-container hide">
+                        <a href="#" class="filter-item" role="option" data-value="popularité">popularité</a>
+                        <a href="#" class="filter-item" role="option" data-value="date">date</a>
+                        <a href="#" class="filter-item" role="option" data-value="titre">titre</a>
+                    </div>
+                </div>
+            </form>
+        `
+
+        this.wrapper.innerHTML = filterForm
+        this.onChangeFilter()
+
+        this.filterFormWrapper.appendChild(this.wrapper)
+    }
+}*/
 
 
