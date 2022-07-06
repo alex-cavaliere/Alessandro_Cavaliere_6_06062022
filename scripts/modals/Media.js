@@ -25,7 +25,7 @@ class Media{
     }
     get price(){
         return this._price
-    }
+    }    
 }
 class Picture extends Media{
     constructor(data){

@@ -79,16 +79,6 @@ let arr = [];
 function mediasFactory(data){
     const media = new Media(data);
     const lightbox = new Lightbox(data);
-    
-    /*function filterTitle(figure){
-        arr.push(media.title)
-        let filteredTitle = arr.sort()
-        console.log(filteredTitle)
-        if(filteredTitle){
-            return figure;
-        }
-    }*/
-
     const body = document.querySelector('.photograph-body');
     const figure = document.createElement('div');
     figure.classList.add('card');
@@ -156,7 +146,26 @@ function mediasFactory(data){
         figure.append(a);
         figure.append(caption);
         body.append(figure);
-        return(figure);
+
+        // lavorazione filtri
+        const filterItem = document.querySelectorAll('.filter-item');
+
+        let selectedFilter = document.querySelector('.selected');
+        filterItem.forEach(item => item.addEventListener('click', function(){
+            selectedFilter.innerHTML = item.textContent;
+            if (selectedFilter.textContent === 'Popularité'){
+                console.log('carne a te')
+                //applicare filtro likes
+            }if (selectedFilter.textContent === 'Date'){
+                console.log('sausizza a te')
+                //applicare filtro per la data 
+            }if(selectedFilter.textContent === 'Titre'){
+                console.log('torta a me')
+                filterTitle(data, media)
+                //applicare filtro per il titolo
+            }
+        }))  
+        return figure;
     }
     function videoTemplate() {
         const vid = new MediaFactory(data, 'video');
@@ -180,6 +189,9 @@ function mediasFactory(data){
         figure.append(a);
         figure.append(caption);
         body.append(figure);
+
+
+
         return(figure);
     }
     return { imgTemplate, videoTemplate }
