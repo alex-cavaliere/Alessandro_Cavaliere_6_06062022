@@ -113,6 +113,28 @@ class Lightbox extends Media{
     }
 }
 
+//function de filtre pour les titres
+
+function filterTitle(media, figure){
+    const body = document.querySelector('.photograph-body')
+    arr.push(media._title);
+    let filteredTitle = arr.sort()
+    console.log(filteredTitle)
+    for(let i = 0; i < filteredTitle.length; i++){
+        let currentTitle;
+        currentTitle = filteredTitle[i];
+        console.log(currentTitle);
+    }
+    
+}
+
+
+
+
+
+
+
+
 /*class FilterForm extends Media {
     constructor(data) {
         super(data)

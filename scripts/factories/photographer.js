@@ -100,8 +100,31 @@ function mediasFactory(data){
     const totLikes = document.querySelector('.photograph-likes');
     const icon = document.createElement('i');
     icon.classList.add('tot-likes-icon' ,'fa-solid', 'fa-heart');
-    totLikes.append(icon);
+    
+    //Adapter
 
+    class AdaptedFilter{
+        constructor(){
+            this.filterItem = document.querySelectorAll('.filter-item');
+            this.filterItem.forEach(item => item.addEventListener('click', function(){
+                this.selectedFilter = document.querySelector('.selected').innerHTML = item.textContent;
+                if (this.selectedFilter === 'Popularité'){
+                    console.log('filtre popularité')
+                    //applicare filtro likes
+                }if (this.selectedFilter === 'Date'){
+                    console.log('filtre date')
+                    //applicare filtro per la data 
+                }if(this.selectedFilter === 'Titre'){
+                    console.log('filtre titre')
+                    filterTitle(media, figure)
+                    //applicare filtro per il titolo
+                }
+            }))
+        }
+    }
+
+    //Adapter
+    
     function increment(){
         likes.textContent++;
         totLikes.textContent++;
@@ -116,11 +139,11 @@ function mediasFactory(data){
         i.classList.remove('fa-solid', 'fa-heart');
         i.classList.add('fa-regular', 'fa-heart');
     }
-
     i.addEventListener('click', function(e){
         e.preventDefault();
         if (i.className == "fa-regular fa-heart"){
             return increment();
+            
         }
         else{
             return decrement();
@@ -130,6 +153,7 @@ function mediasFactory(data){
     // j'ai associé à la Factory.
     function imgTemplate() {
         const picture = new MediaFactory(data, 'img');
+        const filters = new AdaptedFilter(data);
         const img = document.createElement('img');
         p.textContent = picture._title;
         // function qui gere les nombres des likes
@@ -146,25 +170,7 @@ function mediasFactory(data){
         figure.append(a);
         figure.append(caption);
         body.append(figure);
-
-        // lavorazione filtri
-        const filterItem = document.querySelectorAll('.filter-item');
-
-        let selectedFilter = document.querySelector('.selected');
-        filterItem.forEach(item => item.addEventListener('click', function(){
-            selectedFilter.innerHTML = item.textContent;
-            if (selectedFilter.textContent === 'Popularité'){
-                console.log('carne a te')
-                //applicare filtro likes
-            }if (selectedFilter.textContent === 'Date'){
-                console.log('sausizza a te')
-                //applicare filtro per la data 
-            }if(selectedFilter.textContent === 'Titre'){
-                console.log('torta a me')
-                filterTitle(data, media)
-                //applicare filtro per il titolo
-            }
-        }))  
+        
         return figure;
     }
     function videoTemplate() {
