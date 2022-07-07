@@ -115,17 +115,20 @@ class Lightbox extends Media{
 
 //function de filtre pour les titres
 
-function filterTitle(media, figure){
+function filterTitle(media){
     const body = document.querySelector('.photograph-body')
-    arr.push(media._title);
-    let filteredTitle = arr.sort()
-    console.log(filteredTitle)
-    for(let i = 0; i < filteredTitle.length; i++){
-        let currentTitle;
-        currentTitle = filteredTitle[i];
-        console.log(currentTitle);
+    arr.push(media);
+    function SortArray(x, y){
+        if (x.title < y.title) {
+            return -1;
+        }
+        if (x.title > y.title) {
+            return 1;
+        }
+        return 0;
     }
-    
+    let filteredByTitle = arr.sort(SortArray);
+    return filteredByTitle;    
 }
 
 

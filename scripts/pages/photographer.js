@@ -99,11 +99,15 @@ async function getMedias(){
                 //je verifie si c'est une image ou un video.
                 // creazione slides carousel  
 
+                // resoudre le bug de repetition
+
                 const mediaModel = mediasFactory(media);
                 let mediaCardDOM;
                 if(media.hasOwnProperty('image')){
+                    new AdaptedFilter(media);
                     mediaCardDOM = mediaModel.imgTemplate();
                 }else if(media.hasOwnProperty('video')){
+                    new AdaptedFilter(media);
                     mediaCardDOM = mediaModel.videoTemplate(); 
                 }
                 mediaSection.append(mediaCardDOM);
