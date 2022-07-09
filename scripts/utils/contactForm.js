@@ -55,7 +55,7 @@ function checkForm(){
     const elements = document.getElementsByName('modal-input');
     const array = Array.from(elements);
     for(let element of array){
-        console.log(element.value);
+        console.log(element.id + ": " + element.value);
     }
 }
 

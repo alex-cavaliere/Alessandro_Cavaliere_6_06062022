@@ -2,12 +2,15 @@
 //Adapter
 class AdaptedFilter{
     constructor(media){
-        this.clicked = false;
+        let clicked = false;
         this.media = media;
+        console.log(clicked)
         this.filterItem = document.querySelectorAll('.filter-item');
         this.filterItem.forEach(item => item.addEventListener('click', function(){
-            this.selectedFilter = document.querySelector('.selected').innerHTML = item.textContent; 
-            if(!this.clicked){
+            this.selectedFilter = document.querySelector('.selected').innerHTML = item.textContent;
+            console.log(this.selectedFilter); 
+            if(!clicked){
+                clicked = true;
                 if (this.selectedFilter === 'Popularité'){
                     console.log('filtre popularité')
                     //applicare filtro likes
@@ -17,12 +20,11 @@ class AdaptedFilter{
                     //applicare filtro per la data 
                     filterDate(media);
                 }if(this.selectedFilter === 'Titre'){
-                    //this.clicked = true;
                     console.log('filtre titre')
                     filterTitle(media);
                     //applicare filtro per il titolo
                 }
-            }  
+            }
         }))
     }
 }
