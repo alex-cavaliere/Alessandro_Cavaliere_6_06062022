@@ -154,7 +154,6 @@ function mediasFactory(data){
         source.setAttribute("src", vid._videopath);
         source.setAttribute("type", "video/mp4");
         video.classList.add('thumbnail');
-        video.controls = true;
         video.appendChild(source);
         p.textContent = vid._title;
         caption.append(p);
@@ -169,10 +168,7 @@ function mediasFactory(data){
         figure.append(a);
         figure.append(caption);
         body.append(figure);
-
-
-
-        return(figure);
+        return figure;
     }
     return { imgTemplate, videoTemplate }
 }

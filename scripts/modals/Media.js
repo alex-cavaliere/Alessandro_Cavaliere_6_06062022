@@ -112,12 +112,53 @@ class Lightbox extends Media{
         return carousel;
     }
 }
-
-//function de filtre pour les titres
-
-function filterTitle(media){
-    const body = document.querySelector('.photograph-body')
+function filterLikes(media){
+    //function de filtre pour les likes
+    const body = document.querySelector('.photograph-body');
     arr.push(media);
+    console.log(arr);
+    let filteredByLikes = arr.sort((a, b) => (a.likes > b.likes) ? 1 : -1)
+    console.log(filteredByLikes)
+    body.innerHTML = "";
+    filteredByLikes.forEach(filter => {
+        const model = mediasFactory(filter)
+        let filteredDom;
+        if(filter.hasOwnProperty('image')){
+            filteredDom = model.imgTemplate();
+            
+        }else if(filter.hasOwnProperty('video')){
+            filteredDom = model.videoTemplate();    
+        }
+        return filteredDom;
+    })
+}
+function filterDate(media){
+    //function de filtre pour les dates
+    const body = document.querySelector('.photograph-body');
+    arr.push(media);
+    console.log(arr);
+    let filteredByDate = arr.sort((a, b) => (a.date > b.date) ? 1 : -1)
+    console.log(filteredByDate)
+    body.innerHTML = "";
+    filteredByDate.forEach(filter => {
+        const model = mediasFactory(filter)
+        let filteredDom;
+        if(filter.hasOwnProperty('image')){
+            filteredDom = model.imgTemplate();
+            
+        }else if(filter.hasOwnProperty('video')){
+            filteredDom = model.videoTemplate();    
+        }
+        return filteredDom;
+    })
+    
+}
+//function de filtre pour les titres
+function filterTitle(media){
+    const body = document.querySelector('.photograph-body');
+    body.innerHTML = "";
+    arr.push(media);
+    console.log(arr)
     function SortArray(x, y){
         if (x.title < y.title) {
             return -1;
@@ -128,8 +169,19 @@ function filterTitle(media){
         return 0;
     }
     let filteredByTitle = arr.sort(SortArray);
-    return filteredByTitle;    
+    filteredByTitle.forEach(filter => {
+        const model = mediasFactory(filter)
+        let filteredDom;
+        if(filter.hasOwnProperty('image')){
+            filteredDom = model.imgTemplate();
+            
+        }else if(filter.hasOwnProperty('video')){
+            filteredDom = model.videoTemplate();    
+        }
+        return filteredDom;
+    })    
 }
+
 
 
 
