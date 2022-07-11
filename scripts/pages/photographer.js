@@ -3,7 +3,35 @@ const next = document.querySelector(".controls-right");
 const prev = document.querySelector(".controls-left");
 let medias;
 let currentMedias = [];
+let filterItem = document.querySelectorAll('.filter-item');
+console.log(filterItem)
+let itemPopularite = document.getElementById("item-popularite");
+let itemDate = document.getElementById("item-date");
+let itemTitre = document.getElementById("item-titre");
+itemPopularite.addEventListener('click', filterData('Popularité'), false);
+itemDate.addEventListener('click', filterData('Date'), false);
+itemTitre.addEventListener('click', filterData('Titre'), false);
 
+
+function filterData(name){
+    const selectedFilter = document.querySelector('.selected');
+    selectedFilter.innerHTML = name;
+    console.log(name)
+    for(let item of filterItem){
+       console.log(selectedFilter)
+        if(selectedFilter === 'Popularité'){
+            console.log("popularité")
+            break;
+        }else if(selectedFilter === 'Date'){
+            console.log('date')
+            break;
+        }else if(selectedFilter === 'Titre'){
+            console.log('titre')
+            break;
+        }
+    }
+   
+}
 // controls du carousel
 
 prev.addEventListener("click", prevImage)
@@ -108,10 +136,10 @@ async function getMedias(){
                 const mediaModel = mediasFactory(media);
                 let mediaCardDOM;
                 if(media.hasOwnProperty('image')){
-                    new AdaptedFilter(media);
+                    //new AdaptedFilter(media);
                     mediaCardDOM = mediaModel.imgTemplate();
                 }else if(media.hasOwnProperty('video')){
-                    new AdaptedFilter(media);
+                    //new AdaptedFilter(media);
                     mediaCardDOM = mediaModel.videoTemplate(); 
                 }
                 mediaSection.append(mediaCardDOM);

@@ -114,9 +114,7 @@ class Lightbox extends Media{
 }
 
 //function de filtre pour les titres
-function filterTitle(media){
-    const body = document.querySelector('.photograph-body');
-    body.innerHTML = "";
+function filterTitle(media){ 
     arr.push(media);
     console.log(arr)
     function SortArray(x, y){
@@ -139,12 +137,10 @@ function filterTitle(media){
 }
 //function de filtre pour les likes
 function filterLikes(media){
-    const body = document.querySelector('.photograph-body');
     arr.push(media);
     console.log(arr);
     let filteredByLikes = arr.sort((a, b) => (a.likes < b.likes) ? 1 : -1)
     console.log(filteredByLikes)
-    body.innerHTML = "";
     filteredByLikes.forEach(filter => {
         const model = mediasFactory(filter)
         let filteredDom;
@@ -159,11 +155,9 @@ function filterLikes(media){
 }
 //function de filtre pour les dates
 function filterDate(media){
-    const body = document.querySelector('.photograph-body');
     arr.push(media);
     console.log(arr);
     let filteredByDate = arr.sort((a, b) => (a.date < b.date) ? 1 : -1)
-    body.innerHTML = "";
     filteredByDate.forEach(filter => {
         const model = mediasFactory(filter)
         let filteredDom;

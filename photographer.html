@@ -18,20 +18,20 @@
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button">Contactez-moi</button>
+        <button class="contact_button" aria-label="contact me">Contactez-moi</button>
       </div>
       <div class="filter-wrapper">
         <form class="filter-form" action="#" method="post">
           <label for="filter-select">triér par</label>
           <div name="filter-select" id="filter-select">
-            <div class="filter-btn contact_button">
+            <div class="filter-btn contact_button" aria-labelledby="selected">
               <span class="selected">Popularité</span>
               <span class="chevron"><i class="fa-solid fa-chevron-down"></i></span>
             </div>
             <div class="filter-container hide">
-              <a href="#" class="filter-item" role="option" data-value="popularité">Popularité</a>
-              <a href="#" class="filter-item" role="option" data-value="date">Date</a>
-              <a href="#" class="filter-item" role="option" data-value="titre">Titre</a>
+              <a id="item-popularite" href="#" class="filter-item" role="option" data-value="popularité">Popularité</a>
+              <a id="item-date" href="#" class="filter-item" role="option" data-value="date">Date</a>
+              <a id="item-titre" href="#" class="filter-item" role="option" data-value="titre">Titre</a>
             </div>
           </div>
         </form>

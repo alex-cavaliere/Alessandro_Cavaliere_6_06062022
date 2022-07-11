@@ -173,3 +173,9 @@ function mediasFactory(data){
     return { imgTemplate, videoTemplate }
 }
 
+
+function clearDOM() {
+    let body = document.querySelector('.photograph-body');
+    body.innerHTML = "";
+}
+
