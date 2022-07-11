@@ -6,7 +6,11 @@ let currentMedias = [];
 
 // controls du carousel
 
-prev.addEventListener("click", function(){
+prev.addEventListener("click", prevImage)
+next.addEventListener("click", nextImage)
+
+
+function prevImage(){
     let current_img = document.getElementById('current_img');
     let lastId = current_img.getAttribute('data-id');
     let index = currentMedias.findIndex((e) => e.id === parseInt(lastId));
@@ -19,8 +23,8 @@ prev.addEventListener("click", function(){
             lightbox.createVidLightbox();
         }
     }
-})
-next.addEventListener("click", function(){
+}
+function nextImage(){
     let current_img = document.getElementById('current_img');
     let lastId = current_img.getAttribute('data-id');
     let index = currentMedias.findIndex((e) => e.id === parseInt(lastId));
@@ -33,7 +37,7 @@ next.addEventListener("click", function(){
             lightbox.createVidLightbox();
         }
     }
-})
+}
 
 async function getPhotographers() {
     // Penser à remplacer par les données récupérées dans le json

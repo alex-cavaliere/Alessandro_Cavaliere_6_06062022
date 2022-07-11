@@ -105,8 +105,9 @@ form {
     height: auto;
     border-radius: 0 0 5px 5px;
 }
-.chevron-rotate{
-    transform: rotate(180deg);
+.chevron i{
+    transform:rotate(0);
+    transition: transform 250ms;
 }
 
 .filter-item{
@@ -271,6 +272,15 @@ textarea{
     position: relative;
     bottom: 18em;
     right: 2em;
+}
+
+@keyframes chevron {
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(180deg);
+    }
 }
 
 

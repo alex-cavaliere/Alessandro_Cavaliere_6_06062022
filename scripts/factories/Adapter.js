@@ -13,13 +13,13 @@ class AdaptedFilter{
                 clicked = true;
                 if (this.selectedFilter === 'Popularité'){
                     console.log('filtre popularité')
-                    //applicare filtro likes
                     filterLikes(media);
-                }if (this.selectedFilter === 'Date'){
+                    //applicare filtro likes
+                }else if (this.selectedFilter === 'Date'){
                     console.log('filtre date')
-                    //applicare filtro per la data 
                     filterDate(media);
-                }if(this.selectedFilter === 'Titre'){
+                    //applicare filtro per la data 
+                }else if(this.selectedFilter === 'Titre'){
                     console.log('filtre titre')
                     filterTitle(media);
                     //applicare filtro per il titolo

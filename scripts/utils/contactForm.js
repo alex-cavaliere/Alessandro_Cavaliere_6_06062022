@@ -22,13 +22,17 @@ function closeModal() {
 //filtri
 const filter = document.querySelector('#filter-select');
 const options = document.querySelector('.filter-container');
+const chevron = document.querySelector(".chevron > i");
 
 filter.addEventListener("click", function(e){
     e.preventDefault();
     if(options.classList.contains('hide')){
         options.classList.remove('hide');
+        chevron.style.transform = "rotate(180deg)";
     }else{
         options.classList.add('hide');
+        options.style.visibility = "none";
+        chevron.style.transform = "rotate(0)";
     }
 })
 
@@ -41,6 +45,10 @@ closeForm.forEach((close) => close.addEventListener('click', closeModal));
 body.addEventListener('keydown', function(e){
     if (e.key === "Escape"){
         closeModal();
+    }if(e.key === "ArrowLeft"){
+        prevImage();
+    }if(e.key === "ArrowRight"){
+        nextImage();
     }
 })
 
