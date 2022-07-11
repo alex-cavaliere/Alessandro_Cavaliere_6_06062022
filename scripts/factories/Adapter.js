@@ -1,4 +1,3 @@
-
 //Adapter
 class AdaptedFilter{
     constructor(media){
@@ -27,10 +26,9 @@ class AdaptedFilter{
                 }
             }
             clicked = false;
-        }))
+        }));
     }
 }
-
 //Adapter
 
 

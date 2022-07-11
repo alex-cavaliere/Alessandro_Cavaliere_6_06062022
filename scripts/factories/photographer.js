@@ -4,24 +4,24 @@ function photographerFactory(data) {
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const link = document.createElement('a');
-        link.setAttribute("href", "./photographer.html?id="+ photographer.id);
+        link.setAttribute('href', './photographer.html?id='+ photographer.id);
         link.classList.add('link');
         const img = document.createElement( 'img' );
-        img.setAttribute("src", photographer.portrait);
-        img.setAttribute("alt", photographer.name);
+        img.setAttribute('src', photographer.portrait);
+        img.setAttribute('alt', photographer.name);
         const h2 = document.createElement( 'h2' );
         h2.classList.add('name');
         h2.textContent = photographer.name;
         const ville = document.createElement('div');
         ville.classList.add('city');
-        ville.textContent = photographer.city + ", " + photographer.country;
+        ville.textContent = photographer.city + ', ' + photographer.country;
         const region = document.createElement('div');
         const slogan = document.createElement('div');
         slogan.classList.add('tagline');
         slogan.textContent = photographer.tagline;
         const photographerPrice = document.createElement('div');
         photographerPrice.classList.add('price');
-        photographerPrice.textContent = photographer.price + "€/Jour";;
+        photographerPrice.textContent = photographer.price + '€/Jour';;
         link.appendChild(img);
         link.appendChild(h2);
         article.append(link);
@@ -43,7 +43,7 @@ function photographerFactory(data) {
         priceCard.classList.add('price-block');
         const prix = document.createElement('div');
         prix.classList.add('photograph-price');
-        prix.textContent = photographer.price + "€/Jour";
+        prix.textContent = photographer.price + '€/Jour';
         const totLikes = document.createElement('div');
         totLikes.classList.add('photograph-likes');
         priceCard.append(totLikes, prix);
@@ -51,8 +51,8 @@ function photographerFactory(data) {
         const h1 = document.createElement('h1');
         const slogan = document.createElement('div');
         const img = document.createElement('img');
-        img.setAttribute("alt", photographer.name);
-        img.setAttribute("src", photographer.portrait);
+        img.setAttribute('alt', photographer.name);
+        img.setAttribute('src', photographer.portrait);
         slogan.classList.add('tagline');
         slogan.textContent = photographer.tagline;
         const bio = document.createElement('div');
@@ -60,8 +60,8 @@ function photographerFactory(data) {
         h1.classList.add('h1');
         const country = document.createElement('div');
         country.classList.add('country');
-        country.textContent = photographer.city + ", " + photographer.country;
-        h1.setAttribute("aria-label", photographer.name);
+        country.textContent = photographer.city + ', ' + photographer.country;
+        h1.setAttribute('aria-label', photographer.name);
         h1.textContent = photographer.name;
         bio.append(h1);
         bio.append(country);
@@ -91,6 +91,7 @@ function mediasFactory(data){
     likes.classList.add('counter');
     likes.textContent = media._likes;
     const i = document.createElement('i');
+    i.setAttribute('aria-label', 'likes');
     i.classList.add('fa-regular', 'fa-heart');
     const heart = document.createElement('span');
     heart.classList.add('heart');
@@ -117,7 +118,7 @@ function mediasFactory(data){
     }
     i.addEventListener('click', function(e){
         e.preventDefault();
-        if (i.className == "fa-regular fa-heart"){
+        if (i.className == 'fa-regular fa-heart'){
             return increment();
             
         }
@@ -135,8 +136,8 @@ function mediasFactory(data){
         caption.append(p);
         caption.append(heart);
         img.classList.add('thumbnail');
-        img.setAttribute("src", picture._imagepath);
-        img.setAttribute("alt", picture._title);
+        img.setAttribute('src', picture._imagepath);
+        img.setAttribute('alt', picture._title);
         a.addEventListener('click', function(e){
             e.preventDefault();
             lightbox.createImgLightbox();
@@ -151,15 +152,15 @@ function mediasFactory(data){
         const vid = new MediaFactory(data, 'video');
         const video = document.createElement('video');
         const source = document.createElement('source');
-        source.setAttribute("src", vid._videopath);
-        source.setAttribute("type", "video/mp4");
+        source.setAttribute('src', vid._videopath);
+        source.setAttribute('type', 'video/mp4');
         video.classList.add('thumbnail');
         video.appendChild(source);
         p.textContent = vid._title;
         caption.append(p);
         caption.append(heart);
-        a.setAttribute("href", vid._videopath);
-        a.setAttribute("aria-label", "link");
+        a.setAttribute('href', vid._videopath);
+        a.setAttribute('aria-label', 'link');
         a.addEventListener('click', function(e){
             e.preventDefault();
             lightbox.createVidLightbox();

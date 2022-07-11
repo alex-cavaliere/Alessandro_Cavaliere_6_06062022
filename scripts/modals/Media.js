@@ -1,30 +1,30 @@
 // creare il constructor per i media
 class Media{
     constructor(data){
-        this._id = data.id
-        this._photographerId = data.photographerId
-        this._title = data.title
-        this._likes = data.likes
-        this._date = data.date
-        this._price = data.price
+        this._id = data.id;
+        this._photographerId = data.photographerId;
+        this._title = data.title;
+        this._likes = data.likes;
+        this._date = data.date;
+        this._price = data.price;
     }
     get id(){
-        return this._id
+        return this._id;
     }
     get photographerId(){
-        return this._photographerId
+        return this._photographerId;
     }
     get title() {
-        return this._title
+        return this._title;
     }
     get likes(){
-        return this._likes
+        return this._likes;
     }
     get date(){
-        return this._date
+        return this._date;
     }
     get price(){
-        return this._price
+        return this._price;
     }    
 }
 class Picture extends Media{
@@ -116,7 +116,7 @@ class Lightbox extends Media{
 //function de filtre pour les titres
 function filterTitle(media){ 
     arr.push(media);
-    console.log(arr)
+    console.log(arr);
     function SortArray(x, y){
         if (x.title > y.title) {
             return 1;
@@ -124,7 +124,7 @@ function filterTitle(media){
     }
     let filteredByTitle = arr.sort(SortArray);
     filteredByTitle.forEach(filter => {
-        const model = mediasFactory(filter)
+        const model = mediasFactory(filter);
         let filteredDom;
         if(filter.hasOwnProperty('image')){
             filteredDom = model.imgTemplate();
@@ -139,10 +139,10 @@ function filterTitle(media){
 function filterLikes(media){
     arr.push(media);
     console.log(arr);
-    let filteredByLikes = arr.sort((a, b) => (a.likes < b.likes) ? 1 : -1)
+    let filteredByLikes = arr.sort((a, b) => (a.likes < b.likes) ? 1 : -1);
     console.log(filteredByLikes)
     filteredByLikes.forEach(filter => {
-        const model = mediasFactory(filter)
+        const model = mediasFactory(filter);
         let filteredDom;
         if(filter.hasOwnProperty('image')){
             filteredDom = model.imgTemplate();
@@ -157,9 +157,9 @@ function filterLikes(media){
 function filterDate(media){
     arr.push(media);
     console.log(arr);
-    let filteredByDate = arr.sort((a, b) => (a.date < b.date) ? 1 : -1)
+    let filteredByDate = arr.sort((a, b) => (a.date < b.date) ? 1 : -1);
     filteredByDate.forEach(filter => {
-        const model = mediasFactory(filter)
+        const model = mediasFactory(filter);
         let filteredDom;
         if(filter.hasOwnProperty('image')){
             filteredDom = model.imgTemplate();
@@ -168,79 +168,7 @@ function filterDate(media){
             filteredDom = model.videoTemplate();    
         }
         return filteredDom;
-    })
+    });
     
 }
-
-
-
-
-
-
-
-
-
-/*class FilterForm extends Media {
-    constructor(data) {
-        super(data)
-        this.data = data
-
-        this.wrapper = document.createElement('div')
-        this.filterFormWrapper = document.querySelector('.form-modal')
-        this.cardWrapper = document.querySelector('.photograph-body')
-    }
-
-    async filterMovies(actor) {
-        this.clearMoviesWrapper()
-
-        // Vous devrez ajouter votre Adapter ici 
-        //const FilterLib = new FilterV1(this.Movies, actor)
-        //const FilteredMovies = await FilterLib.filterByActor()
-        const FilterLib = new FilterMoviesAdapter(this.Movies, actor)
-        const FilteredMovies = await FilterLib.filterByActor()
-
-        FilteredMovies.forEach(Movie => {
-            const Template = new MovieCard(Movie)
-            this.$moviesWrapper.appendChild(Template.createMovieCard())
-        })
-    }
-
-    onChangeFilter() {
-        this.wrapper
-            .querySelector('form')
-            .addEventListener('change', e => {
-                const actor = e.target.value
-                this.filterMovies(actor)
-            })
-    }
-
-    clearMoviesWrapper() {
-        this.cardWrapper.innerHTML = ""
-    }
-
-    render() {
-        const filterForm = `
-            <form class="filter-form" action="#" method="post">
-                <label for="filter-select">triér par</label>
-                <div name="filter-select" id="filter-select">
-                    <div class="filter-btn contact_button">
-                        <span class="selected">Popularité</span>
-                        <span class="chevron"><i class="fa-solid fa-chevron-down"></i></span>
-                    </div>
-                    <div class="filter-container hide">
-                        <a href="#" class="filter-item" role="option" data-value="popularité">popularité</a>
-                        <a href="#" class="filter-item" role="option" data-value="date">date</a>
-                        <a href="#" class="filter-item" role="option" data-value="titre">titre</a>
-                    </div>
-                </div>
-            </form>
-        `
-
-        this.wrapper.innerHTML = filterForm
-        this.onChangeFilter()
-
-        this.filterFormWrapper.appendChild(this.wrapper)
-    }
-}*/
-
 
