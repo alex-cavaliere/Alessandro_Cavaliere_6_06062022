@@ -1,4 +1,5 @@
 // creare il constructor per i media
+
 class Media{
     constructor(data){
         this._id = data.id;
@@ -112,7 +113,7 @@ class Lightbox extends Media{
         return carousel;
     }
 }
-
+let arr = [];
 //function de filtre pour les titres
 function filterTitle(media){ 
     arr.push(media);

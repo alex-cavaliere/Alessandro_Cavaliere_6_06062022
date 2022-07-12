@@ -4,33 +4,52 @@ const prev = document.querySelector('.controls-left');
 let medias;
 let currentMedias = [];
 let filterItem = document.querySelectorAll('.filter-item');
-console.log(filterItem)
-let itemPopularite = document.getElementById('item-popularite');
-let itemDate = document.getElementById('item-date');
-let itemTitre = document.getElementById('item-titre');
-itemPopularite.addEventListener('click', filterData('Popularité'), false);
-itemDate.addEventListener('click', filterData('Date'), false);
-itemTitre.addEventListener('click', filterData('Titre'), false);
 
+const mediaSection = document.querySelector('.photograph-body');
 
-function filterData(name){
+for(let item of filterItem){
+    item.addEventListener('click', filterAction, false);
+}
+function filterAction(e){
+    let name = e.target.innerText;
+    filterData(name, currentMedias);
+}
+
+function filterData(type, medias){
     const selectedFilter = document.querySelector('.selected');
-    selectedFilter.innerHTML = name;
-    console.log(name)
-    for(let item of filterItem){
-        console.log(selectedFilter)
-        if(selectedFilter === 'Popularité'){
-            console.log('popularité')
-            break;
-        }else if(selectedFilter === 'Date'){
-            console.log('date')
-            break;
-        }else if(selectedFilter === 'Titre'){
-            console.log('titre')
-            break;
-        }
+    switch (type){
+    case 'Popularité':
+        medias.sort((a, b) => {
+            return b.likes - a.likes;
+        });
+        break;
+    case 'Date':
+        medias.sort((a, b) => {
+            return new Date(b.date) - new Date(a.date);
+        });
+        break;
+    case 'Titre':
+        medias.sort((a, b) => {
+            return a.title.localeCompare(b.title);
+        });
+        break;
+    default:
+        return medias;
+    }  
+    mediaSection.innerHTML = '';
+    medias.forEach(media => displayData(media, mediaSection));
+}
+function displayData(media, section){
+    const mediaModel = mediasFactory(media);
+    let mediaCardDOM;
+    if(media.hasOwnProperty('image')){
+        //new AdaptedFilter(media);
+        mediaCardDOM = mediaModel.imgTemplate();
+    }else if(media.hasOwnProperty('video')){
+        //new AdaptedFilter(media);
+        mediaCardDOM = mediaModel.videoTemplate(); 
     }
-   
+    mediaSection.append(mediaCardDOM);
 }
 // controls du carousel
 
@@ -108,7 +127,6 @@ async function getMedias(){
         .then(function(data){
             //
             medias = data.media;
-            const mediaSection = document.querySelector('.photograph-body');
             const Params = (new URL(document.location).searchParams);
             const Id = Number(Params.get('id'));
 
@@ -132,17 +150,7 @@ async function getMedias(){
                         // creazione slides carousel  
 
                         // resoudre le bug de repetition
-
-                        const mediaModel = mediasFactory(media);
-                        let mediaCardDOM;
-                        if(media.hasOwnProperty('image')){
-                            //new AdaptedFilter(media);
-                            mediaCardDOM = mediaModel.imgTemplate();
-                        }else if(media.hasOwnProperty('video')){
-                            //new AdaptedFilter(media);
-                            mediaCardDOM = mediaModel.videoTemplate(); 
-                        }
-                        mediaSection.append(mediaCardDOM);
+                        displayData(media, mediaSection);
                     }   
                 });
         })

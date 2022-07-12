@@ -13,7 +13,7 @@
   <body>
     <header>
       <a href="./index.html">
-        <img src="assets/images/logo.png" class="logo" alt="Fisheye logo">
+        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page">
       </a>
     </header>
     <main id="main">
@@ -21,14 +21,14 @@
         <button class="contact_button" aria-label="contact me">Contactez-moi</button>
       </div>
       <div class="filter-wrapper">
-        <form class="filter-form" action="#" method="post">
+        <form class="filter-form" action="#" method="post" aria-labelledby="filter-select">
           <label for="filter-select">triér par</label>
           <div name="filter-select" id="filter-select">
-            <div class="filter-btn contact_button" aria-labelledby="selected">
+            <div class="filter-btn contact_button" role="button" aria-haspopup="listbox">
               <span class="selected">Popularité</span>
               <span class="chevron"><i class="fa-solid fa-chevron-down"></i></span>
             </div>
-            <div class="filter-container hide">
+            <div class="filter-container hide" role="listbox" aria-labelledby="filter-item" aria-activedescendant aria-selected aria-expanded="false">
               <a id="item-popularite" href="#" class="filter-item" role="option" data-value="popularité">Popularité</a>
               <a id="item-date" href="#" class="filter-item" role="option" data-value="date">Date</a>
               <a id="item-titre" href="#" class="filter-item" role="option" data-value="titre">Titre</a>
@@ -95,7 +95,6 @@
 
     <script src="./scripts/utils/contactForm.js"></script>
     <script src="./scripts/factories/photographer.js"></script>
-    <script src="./scripts/factories/Adapter.js"></script>
     <script src="./scripts/factories/media.js"></script>
     <script src="./scripts/modals/Photographer.js"></script>
     <script src="./scripts/modals/Media.js"></script>

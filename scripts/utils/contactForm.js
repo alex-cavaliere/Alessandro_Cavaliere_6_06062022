@@ -1,38 +1,40 @@
-const closeForm = document.querySelectorAll(".close");
+const closeForm = document.querySelectorAll('.close');
 const body = document.querySelector('body');
 const openForm = document.querySelector('.contact_button');
-const modal = document.querySelector("#contact_modal");
-const lightbox = document.querySelector("#lightbox");
+const modal = document.querySelector('#contact_modal');
+const lightbox = document.querySelector('#lightbox');
 
 // creare bottoni carousel
-const main = document.querySelector("#main");
+const main = document.querySelector('#main');
 
 function displayModal() {
-    modal.setAttribute("aria-hidden", "false");
-    modal.setAttribute("role", "dialog");
-	modal.style.display = "flex";
+    modal.setAttribute('aria-hidden', 'false');
+    modal.setAttribute('role', 'dialog');
+    modal.style.display = 'flex';
 }
 
 function closeModal() {
-    modal.setAttribute("aria-hidden", "true");
-    modal.style.display = "none";
-    lightbox.style.display = "none";
+    modal.setAttribute('aria-hidden', 'true');
+    modal.style.display = 'none';
+    lightbox.style.display = 'none';
 }
 
 //filtri
 const filter = document.querySelector('#filter-select');
 const options = document.querySelector('.filter-container');
-const chevron = document.querySelector(".chevron > i");
+const chevron = document.querySelector('.chevron > i');
 
-filter.addEventListener("click", function(e){
+filter.addEventListener('click', function(e){
     e.preventDefault();
     if(options.classList.contains('hide')){
         options.classList.remove('hide');
-        chevron.style.transform = "rotate(180deg)";
+        options.setAttribute('aria-expanded', true);
+        chevron.style.transform = 'rotate(180deg)';
     }else{
         options.classList.add('hide');
-        options.style.visibility = "none";
-        chevron.style.transform = "rotate(0)";
+        options.setAttribute('aria-expanded', false);
+        options.style.visibility = 'none';
+        chevron.style.transform = 'rotate(0)';
     }
 })
 
@@ -43,27 +45,21 @@ openForm.addEventListener('click', displayModal);
 closeForm.forEach((close) => close.addEventListener('click', closeModal));
 
 body.addEventListener('keydown', function(e){
-    if (e.key === "Escape"){
+    if (e.key === 'Escape'){
         closeModal();
-    }if(e.key === "ArrowLeft"){
+    }if(e.key === 'ArrowLeft'){
         prevImage();
-    }if(e.key === "ArrowRight"){
+    }if(e.key === 'ArrowRight'){
         nextImage();
     }
 })
 
 
-const modalbg = document.querySelector(".modal");
-const firstName = document.querySelector("#first");
-const lastName = document.querySelector("#last");
-const emailName = document.querySelector("#email");
-const message = document.querySelector("#message");
-
 function checkForm(){
     const elements = document.getElementsByName('modal-input');
     const array = Array.from(elements);
     for(let element of array){
-        console.log(element.id + ": " + element.value);
+        console.log(element.id + ': ' + element.value);
     }
 }
 
@@ -71,7 +67,7 @@ function validateModal(){
     modal.addEventListener('submit', function(e){
         e.preventDefault();
         checkForm();
-    })
+    });
 }
 
 

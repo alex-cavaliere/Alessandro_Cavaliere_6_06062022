@@ -75,7 +75,6 @@ function photographerFactory(data) {
     }
     return { getUserCardDOM, user }
 }
-let arr = [];
 function mediasFactory(data){
     const media = new Media(data);
     const lightbox = new Lightbox(data);
@@ -91,7 +90,7 @@ function mediasFactory(data){
     likes.classList.add('counter');
     likes.textContent = media._likes;
     const i = document.createElement('i');
-    i.setAttribute('aria-label', 'likes');
+    likes.setAttribute('aria-label', 'likes');
     i.classList.add('fa-regular', 'fa-heart');
     const heart = document.createElement('span');
     heart.classList.add('heart');

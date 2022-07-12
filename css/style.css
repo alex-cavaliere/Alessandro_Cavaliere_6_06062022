@@ -13,6 +13,21 @@ header {
     align-items: center;
     height: 90px;
 }
+.hashtag-container{
+    display: flex;
+    justify-content: space-between;
+}
+.hashtag-item{
+    background-color: white;
+    list-style-type: none;
+    font-weight: 600;
+    color: #901C1C;
+    border: 1px solid grey;
+    border-radius: 20px;
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+}
 main{
     margin-bottom: 4em;
 }
