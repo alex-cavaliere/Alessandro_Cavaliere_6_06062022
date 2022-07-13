@@ -69,11 +69,11 @@ function photographerFactory(data) {
         headerContent.append(priceCard);
         headerContent.appendChild(bio);
         headerContent.append(img);
-        headerContent.append(btn)
+        headerContent.append(btn);
         header.appendChild(headerContent);
         return (headerContent);
     }
-    return { getUserCardDOM, user }
+    return { getUserCardDOM, user };
 }
 function mediasFactory(data){
     const media = new Media(data);

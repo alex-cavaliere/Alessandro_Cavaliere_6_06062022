@@ -28,6 +28,13 @@ header {
     margin: 5px;
     padding: 5px;
 }
+.hashtag-item:hover{
+    background-color: #901C1C;
+    color: white;
+    transform: scale(1.1);
+    cursor: pointer;
+    transition: all 250ms ;
+}
 main{
     margin-bottom: 4em;
 }

@@ -16,7 +16,7 @@ function filterAction(e){
 }
 
 function filterData(type, medias){
-    const selectedFilter = document.querySelector('.selected');
+    const selectedFilter = document.querySelector('.selected').innerHTML = type;
     switch (type){
     case 'Popularité':
         medias.sort((a, b) => {
@@ -49,7 +49,7 @@ function displayData(media, section){
         //new AdaptedFilter(media);
         mediaCardDOM = mediaModel.videoTemplate(); 
     }
-    mediaSection.append(mediaCardDOM);
+    section.append(mediaCardDOM);
 }
 // controls du carousel
 

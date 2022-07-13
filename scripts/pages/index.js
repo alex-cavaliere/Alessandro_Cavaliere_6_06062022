@@ -1,3 +1,7 @@
+const hashtags = document.querySelectorAll('.hashtag-item');
+
+let prova = [];
+//console.log(hashtags);
 async function getPhotographers() {
 // Penser à remplacer par les données récupérées dans le json
     fetch('./data/photographers.json')
@@ -8,12 +12,32 @@ async function getPhotographers() {
         })
         .then(function(data){
             const photographers = data.photographers;
-            console.log(photographers);
+        
+            /*function filterHashtag(hashtag, photograph){
+        
+            }*/
+            //console.log(photographers);
             const photographersSection = document.querySelector('.photographer_section');
             photographers.forEach((photographer) => {
-                const photographerModel = photographerFactory(photographer);
-                const userCardDOM = photographerModel.getUserCardDOM();
-                photographersSection.appendChild(userCardDOM);
+                let photoHashtag = photographer.hashtag; 
+                for (let hashtag of hashtags){
+                    console.log(hashtag);
+                    let currentHashtag = hashtag;
+                    currentHashtag.addEventListener('click', function(e){
+                        let selected = e.target.getAttribute('name');
+                        console.log(selected, photoHashtag);
+                        console.log(photoHashtag.indexOf(selected));
+                        // sistemare filtro hashtag
+
+                        if (photoHashtag.indexOf(selected) !== -1){
+                            prova.push(photographer);
+                            console.log(prova);
+                            photographersSection.innerHTML = '';
+                            prova.forEach(person => displayPhotographers(person, photographersSection));
+                        }
+                    }, false);
+                }
+                displayPhotographers(photographer, photographersSection);
             });
         })  
         .catch(function(err){
@@ -25,4 +49,11 @@ async function init() {
     // Récupère les datas des photographes
     await getPhotographers();
 }
+
+function displayPhotographers(photographer, Section){
+    const photographerModel = photographerFactory(photographer);
+    const userCardDOM = photographerModel.getUserCardDOM();
+    Section.appendChild(userCardDOM);
+}
+
 init();
