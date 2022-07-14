@@ -1,6 +1,6 @@
 const hashtags = document.querySelectorAll('.hashtag-item');
-
-let prova = [];
+const photographersSection = document.querySelector('.photographer_section');
+let currentPhotographers = [];
 //console.log(hashtags);
 async function getPhotographers() {
 // Penser à remplacer par les données récupérées dans le json
@@ -12,24 +12,22 @@ async function getPhotographers() {
         })
         .then(function(data){
             const photographers = data.photographers;
-        
-            /*function filterHashtag(hashtag, photograph){
-        
-            }*/
+    
             //console.log(photographers);
-            const photographersSection = document.querySelector('.photographer_section');
             photographers.forEach((photographer) => {
+                // filter photographer
                 let photoHashtag = photographer.hashtag; 
                 for (let hashtag of hashtags){
-                    console.log(hashtag);
+                    //console.log(hashtag);
                     hashtag.addEventListener('click', function(e){
                         let selected = e.target.getAttribute('name');
-                        console.log(selected, photoHashtag);
-                        console.log(photoHashtag.indexOf(selected));
+                        //console.log(selected, photoHashtag);
+                        //console.log(photoHashtag.indexOf(selected));
                         // sistemare filtro hashtag
                         if (photoHashtag.indexOf(selected) !== -1){
                             photographersSection.innerHTML = '';
-                            displayPhotographers(photographer, photographersSection);
+                            currentPhotographers.push(photographer);
+                            currentPhotographers.forEach(currentPhotographer =>  displayPhotographers(currentPhotographer, photographersSection));
                         }
                     }, false);
                 }
