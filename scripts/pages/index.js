@@ -22,18 +22,14 @@ async function getPhotographers() {
                 let photoHashtag = photographer.hashtag; 
                 for (let hashtag of hashtags){
                     console.log(hashtag);
-                    let currentHashtag = hashtag;
-                    currentHashtag.addEventListener('click', function(e){
+                    hashtag.addEventListener('click', function(e){
                         let selected = e.target.getAttribute('name');
                         console.log(selected, photoHashtag);
                         console.log(photoHashtag.indexOf(selected));
                         // sistemare filtro hashtag
-
                         if (photoHashtag.indexOf(selected) !== -1){
-                            prova.push(photographer);
-                            console.log(prova);
                             photographersSection.innerHTML = '';
-                            prova.forEach(person => displayPhotographers(person, photographersSection));
+                            displayPhotographers(photographer, photographersSection);
                         }
                     }, false);
                 }
