@@ -1,6 +1,4 @@
-const hashtags = document.querySelectorAll('.hashtag-item');
 const photographersSection = document.querySelector('.photographer_section');
-let currentPhotographers = [];
 //console.log(hashtags);
 async function getPhotographers() {
 // Penser à remplacer par les données récupérées dans le json
@@ -16,21 +14,6 @@ async function getPhotographers() {
             //console.log(photographers);
             photographers.forEach((photographer) => {
                 // filter photographer
-                let photoHashtag = photographer.hashtag; 
-                for (let hashtag of hashtags){
-                    //console.log(hashtag);
-                    hashtag.addEventListener('click', function(e){
-                        let selected = e.target.getAttribute('name');
-                        //console.log(selected, photoHashtag);
-                        //console.log(photoHashtag.indexOf(selected));
-                        // sistemare filtro hashtag
-                        if (photoHashtag.indexOf(selected) !== -1){
-                            photographersSection.innerHTML = '';
-                            currentPhotographers.push(photographer);
-                            currentPhotographers.forEach(currentPhotographer =>  displayPhotographers(currentPhotographer, photographersSection));
-                        }
-                    }, false);
-                }
                 displayPhotographers(photographer, photographersSection);
             });
         })  

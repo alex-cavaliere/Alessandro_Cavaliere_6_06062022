@@ -11,29 +11,9 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    margin-left: 2em;
     height: 90px;
-}
-.hashtag-container{
-    display: flex;
-    justify-content: space-between;
-}
-.hashtag-item{
-    background-color: white;
-    list-style-type: none;
-    font-weight: 600;
-    color: #901C1C;
-    border: 1px solid grey;
-    border-radius: 20px;
-    text-align: center;
-    margin: 5px;
-    padding: 5px;
-}
-.hashtag-item:hover{
-    background-color: #901C1C;
-    color: white;
-    transform: scale(1.1);
-    cursor: pointer;
-    transition: all 250ms ;
 }
 main{
     margin-bottom: 4em;
@@ -41,19 +21,21 @@ main{
 
 h1 {
     color: #901C1C;
-    margin-right: 100px;
+    margin-right: 2em;
 }
 
 .logo {
     height: 50px;
-    margin-left: 100px;
+    margin-left: 2em;
 }
 
 .photographer_section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 90%;
+  padding-top: 4em;
+  margin: auto;
 }
 
 .photographer_section article {
@@ -62,6 +44,9 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 2em;
+    margin-left: 4em;
+    margin-right: 4em;
 }
 
 .photographer_section article h2 {
@@ -73,6 +58,7 @@ h1 {
     height: 200px;
     width: 200px;
     border-radius: 50%;
+    margin: auto;
     object-fit: cover;
     object-position: top;
 }
