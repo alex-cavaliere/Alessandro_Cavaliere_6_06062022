@@ -4,7 +4,7 @@ const prev = document.querySelector('.controls-left');
 let medias;
 let currentMedias = [];
 let filterItem = document.querySelectorAll('.filter-item');
-
+document.querySelector('.selected').innerHTML = 'Popularité';
 const mediaSection = document.querySelector('.photograph-body');
 
 for(let item of filterItem){
@@ -12,6 +12,10 @@ for(let item of filterItem){
 }
 function filterAction(e){
     let name = e.target.innerText;
+    filterItem.forEach(filter => {
+        filter.style.display = 'block';
+    });
+    e.target.style.display = 'none';
     filterData(name, currentMedias);
 }
 
@@ -19,6 +23,7 @@ function filterData(type, medias){
     const selectedFilter = document.querySelector('.selected').innerHTML = type;
     switch (type){
     case 'Popularité':
+        
         medias.sort((a, b) => {
             return b.likes - a.likes;
         });
@@ -42,10 +47,10 @@ function filterData(type, medias){
 function displayData(media, section){
     const mediaModel = mediasFactory(media);
     let mediaCardDOM;
-    if(media.hasOwnProperty('image')){
+    if(Object.prototype.hasOwnProperty.call(media, 'image')){
         //new AdaptedFilter(media);
         mediaCardDOM = mediaModel.imgTemplate();
-    }else if(media.hasOwnProperty('video')){
+    }else if(Object.prototype.hasOwnProperty.call(media, 'video')){
         //new AdaptedFilter(media);
         mediaCardDOM = mediaModel.videoTemplate(); 
     }
@@ -64,9 +69,9 @@ function prevImage(){
     if(index > 0){
         let currentMedia = currentMedias[index - 1];
         const lightbox = new Lightbox(currentMedia);
-        if (currentMedia.hasOwnProperty('image')){
+        if (Object.prototype.hasOwnProperty.call(currentMedia, 'image')){
             lightbox.createImgLightbox();
-        }else if(currentMedia.hasOwnProperty('video')){
+        }else if(Object.prototype.hasOwnProperty.call(currentMedia, 'video')){
             lightbox.createVidLightbox();
         }
     }
@@ -78,9 +83,9 @@ function nextImage(){
     if(index < currentMedias.length){
         let currentMedia = currentMedias[index + 1];
         const lightbox = new Lightbox(currentMedia);
-        if (currentMedia.hasOwnProperty('image')){
+        if (Object.prototype.hasOwnProperty.call(currentMedia, 'image')){
             lightbox.createImgLightbox();
-        }else if(currentMedia.hasOwnProperty('video')){
+        }else if(Object.prototype.hasOwnProperty.call(currentMedia, 'video')){
             lightbox.createVidLightbox();
         }
     }

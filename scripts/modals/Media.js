@@ -102,7 +102,7 @@ class Lightbox extends Media{
        
         const videoTemplate = 
         `
-        <video id="current_img" data-id="${this._id}" controls>
+        <video id="current_img" data-id="${this._id}" controls autoplay>
             <source src="${this._vidpath}" type="video/mp4">
         </video>
         <p class="caption">${this._title}</p>
@@ -113,63 +113,5 @@ class Lightbox extends Media{
         return carousel;
     }
 }
-let arr = [];
-//function de filtre pour les titres
-function filterTitle(media){ 
-    arr.push(media);
-    console.log(arr);
-    function SortArray(x, y){
-        if (x.title > y.title) {
-            return 1;
-        }
-    }
-    let filteredByTitle = arr.sort(SortArray);
-    filteredByTitle.forEach(filter => {
-        const model = mediasFactory(filter);
-        let filteredDom;
-        if(filter.hasOwnProperty('image')){
-            filteredDom = model.imgTemplate();
-            
-        }else if(filter.hasOwnProperty('video')){
-            filteredDom = model.videoTemplate();    
-        }
-        return filteredDom;
-    });    
-}
-//function de filtre pour les likes
-function filterLikes(media){
-    arr.push(media);
-    console.log(arr);
-    let filteredByLikes = arr.sort((a, b) => (a.likes < b.likes) ? 1 : -1);
-    console.log(filteredByLikes);
-    filteredByLikes.forEach(filter => {
-        const model = mediasFactory(filter);
-        let filteredDom;
-        if(filter.hasOwnProperty('image')){
-            filteredDom = model.imgTemplate();
-            
-        }else if(filter.hasOwnProperty('video')){
-            filteredDom = model.videoTemplate();    
-        }
-        return filteredDom;
-    });
-}
-//function de filtre pour les dates
-function filterDate(media){
-    arr.push(media);
-    console.log(arr);
-    let filteredByDate = arr.sort((a, b) => (a.date < b.date) ? 1 : -1);
-    filteredByDate.forEach(filter => {
-        const model = mediasFactory(filter);
-        let filteredDom;
-        if(filter.hasOwnProperty('image')){
-            filteredDom = model.imgTemplate();
-            
-        }else if(filter.hasOwnProperty('video')){
-            filteredDom = model.videoTemplate();    
-        }
-        return filteredDom;
-    });
-    
-}
+
 
