@@ -30,36 +30,36 @@ class Media{
 }
 class Picture extends Media{
     constructor(data){
-        super(data)
-        this._type = 'img'
-        this._image = data.image
-        this._imagepath = `./assets/photographers/thumbnails/${this._image}`
+        super(data);
+        this._type = 'img';
+        this._image = data.image;
+        this._imagepath = `./assets/photographers/thumbnails/${this._image}`;
     }
     get type(){
-        return this._type
+        return this._type;
     }
     get image(){
-        return this._image
+        return this._image;
     }
     get path(){
-        return this._imagepath
+        return this._imagepath;
     }
 }
 class Video extends Media{
     constructor(data){
-        super(data)
-        this._type = 'video'
-        this._video = data.video
-        this._videopath = `./assets/photographers/thumbnails/${this._video}`
+        super(data);
+        this._type = 'video';
+        this._video = data.video;
+        this._videopath = `./assets/photographers/thumbnails/${this._video}`;
     }
     get type(){
-        return this._type
+        return this._type;
     }
     get video(){
-        return this._video
+        return this._video;
     }
     get path(){
-        return this._videopath
+        return this._videopath;
     }
 } 
 
@@ -68,11 +68,11 @@ const carousel = document.querySelector('.carousel');
 
 class Lightbox extends Media{
     constructor(data){
-        super(data)
-        this._image = data.image
-        this._video = data.video
-        this._imgpath = `./assets/photographers/thumbnails/${this._image}`
-        this._vidpath = `./assets/photographers/thumbnails/${this._video}`
+        super(data);
+        this._image = data.image;
+        this._video = data.video;
+        this._imgpath = `./assets/photographers/thumbnails/${this._image}`;
+        this._vidpath = `./assets/photographers/thumbnails/${this._video}`;
     }
     get image(){
         return this._image;
@@ -134,14 +134,14 @@ function filterTitle(media){
             filteredDom = model.videoTemplate();    
         }
         return filteredDom;
-    })    
+    });    
 }
 //function de filtre pour les likes
 function filterLikes(media){
     arr.push(media);
     console.log(arr);
     let filteredByLikes = arr.sort((a, b) => (a.likes < b.likes) ? 1 : -1);
-    console.log(filteredByLikes)
+    console.log(filteredByLikes);
     filteredByLikes.forEach(filter => {
         const model = mediasFactory(filter);
         let filteredDom;
@@ -152,7 +152,7 @@ function filterLikes(media){
             filteredDom = model.videoTemplate();    
         }
         return filteredDom;
-    })
+    });
 }
 //function de filtre pour les dates
 function filterDate(media){

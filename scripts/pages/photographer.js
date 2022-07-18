@@ -53,8 +53,8 @@ function displayData(media, section){
 }
 // controls du carousel
 
-prev.addEventListener('click', prevImage)
-next.addEventListener('click', nextImage)
+prev.addEventListener('click', prevImage);
+next.addEventListener('click', nextImage);
 
 
 function prevImage(){
@@ -121,7 +121,7 @@ async function getMedias(){
     fetch('./data/photographers.json')
         .then(function(res){
             if(res.ok){
-                return res.json()
+                return res.json();
             }
         })
         .then(function(data){
@@ -145,7 +145,7 @@ async function getMedias(){
                         
                         const icon = document.createElement('i');
                         icon.classList.add('tot-likes-icon' ,'fa-solid', 'fa-heart');
-                        likesBlock.append(icon)
+                        likesBlock.append(icon);
                         //je verifie si c'est une image ou un video.
                         // creazione slides carousel  
 

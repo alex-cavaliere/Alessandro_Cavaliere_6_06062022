@@ -5,7 +5,7 @@ class MediaFactory {
         } else if (type === 'video') {
             return new Video(data);
         } else {
-            throw 'Unknown type format'
+            throw 'Unknown type format';
         }
     }
 }

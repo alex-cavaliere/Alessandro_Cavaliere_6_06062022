@@ -36,7 +36,7 @@ filter.addEventListener('click', function(e){
         options.style.visibility = 'none';
         chevron.style.transform = 'rotate(0)';
     }
-})
+});
 
 
 
@@ -52,7 +52,7 @@ body.addEventListener('keydown', function(e){
     }if(e.key === 'ArrowRight'){
         nextImage();
     }
-})
+});
 
 
 function checkForm(){

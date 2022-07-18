@@ -16,7 +16,6 @@ a{
 
 .photograph-header {
     background-color: #FAFAFA;
-    height: 18.75em;
     margin: 20px 100px;
 }
 .photograph-body{
@@ -24,6 +23,7 @@ a{
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 0 100px;
+    color: #901C1C;
 }
 
 .contact_button, .filter-container{
@@ -192,9 +192,6 @@ textarea{
     top: 0px;
     border-radius: 5px;    
 }
-.photograph-body{
-    color: #901C1C;
-}
 .caption{
     display: flex;
     align-items: center;
@@ -272,6 +269,33 @@ textarea{
     position: relative;
     bottom: 18em;
     right: 2em;
+}
+
+@media screen and (max-width: 768px){
+    .header-content{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .header-content{
+        justify-content: center;
+        align-items: center;
+    }
+    .photograph-header img{
+        margin-left: 0;
+    }
+    .photograph-header{
+        margin: 0;
+        height: 600px;
+    }
+    .photograph-body{
+        margin: 0;
+    }
+    .photographer-label, .contact_button{
+        margin-bottom: 2em;
+    }
+    .filter-form{
+        margin: 0 1em;
+    }
 }
 
 @keyframes chevron {

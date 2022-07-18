@@ -1,3 +1,5 @@
+//eslint-disable-global no-undef
+//eslint-disable-global no-unused-vars
 function photographerFactory(data) {
     const photographer = new Photographer(data);
     
@@ -36,7 +38,7 @@ function photographerFactory(data) {
         const btn = document.querySelector('.contact_button');
         const headerContent = document.createElement('div');
         const priceCard = document.createElement('div');
-        const modal = document.querySelector('.modal-header')
+        const modal = document.querySelector('.modal-header');
         const modalH3 = document.querySelector('h3');
         modalH3.textContent = photographer.name;
         modal.appendChild(modalH3);
@@ -140,7 +142,7 @@ function mediasFactory(data){
         a.addEventListener('click', function(e){
             e.preventDefault();
             lightbox.createImgLightbox();
-        })
+        });
         a.appendChild(img);      
         figure.append(a);
         figure.append(caption);
@@ -163,19 +165,19 @@ function mediasFactory(data){
         a.addEventListener('click', function(e){
             e.preventDefault();
             lightbox.createVidLightbox();
-        })
+        });
         a.appendChild(video);
         figure.append(a);
         figure.append(caption);
         body.append(figure);
         return figure;
     }
-    return { imgTemplate, videoTemplate }
+    return { imgTemplate, videoTemplate };
 }
 
 
 function clearDOM() {
     let body = document.querySelector('.photograph-body');
-    body.innerHTML = "";
+    body.innerHTML = '';
 }
 
