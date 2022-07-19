@@ -89,8 +89,8 @@ h1 {
         margin: auto;
     }
     header h1 {
-        margin-left: 1em;
-        text-indent: 1.5em;
+        margin: 0;
+        text-indent: 1em;
     }
     .photographer_section{
         justify-content: center;

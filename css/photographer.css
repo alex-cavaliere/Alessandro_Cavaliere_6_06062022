@@ -89,7 +89,7 @@ form {
     justify-content: center;
     align-items: center;
     transform: translateY(25%);
-    margin-top: 6em;
+    margin-top: 4em;
     padding: 3px;
 }
 #filter-select .filter-btn{
@@ -230,12 +230,12 @@ textarea{
 #lightbox{
     display: none;
     position: fixed;
-    top: 0;
+    top: -2em;
     padding-top: 2em;
     padding-bottom: 3em;
     background-color: white;
     width: 100%;
-    height: 90%;
+    height: 100%;
     z-index: 10;
 }
 .carousel{
@@ -243,10 +243,10 @@ textarea{
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
-    width: 1050px;
+    width: 100%;
     height: 90%;
 }
-.carousel img{
+.carousel img, .carousel video{
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -257,7 +257,7 @@ textarea{
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: fit-content;
+    width: 80%;
     height: 100%;
     margin: auto;
     color: #901C1C;
@@ -282,6 +282,16 @@ textarea{
     }
     .photograph-header img{
         margin-left: 0;
+    
+    }
+    .modal header h2, .modal header h3 {
+        margin-left: -1.5em;
+        font-size: 2em;
+        font-weight: normal;
+    }
+    .modal header .close{
+        margin-top: 2em;
+        margin-right: -1em;
     }
     .photograph-header{
         margin: 0;
@@ -295,6 +305,9 @@ textarea{
     }
     .filter-form{
         margin: 0 1em;
+    }
+    .filter-container{
+        margin-top: -2em;
     }
 }
 
