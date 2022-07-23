@@ -48,10 +48,8 @@ function displayData(media, section){
     const mediaModel = mediasFactory(media);
     let mediaCardDOM;
     if(Object.prototype.hasOwnProperty.call(media, 'image')){
-        //new AdaptedFilter(media);
         mediaCardDOM = mediaModel.imgTemplate();
     }else if(Object.prototype.hasOwnProperty.call(media, 'video')){
-        //new AdaptedFilter(media);
         mediaCardDOM = mediaModel.videoTemplate(); 
     }
     section.append(mediaCardDOM);
@@ -135,14 +133,14 @@ async function getMedias(){
             const Params = (new URL(document.location).searchParams);
             const Id = Number(Params.get('id'));
 
-            // somma likes
+            // sommes des likes
             let sum = 0;
             medias
                 .forEach((media) => {
-                    // controllo se i media coincidono con l'id del fotografo
+                    // verifier si les medias ont une correspondence avec l'ID du photographe 
                 
                     if(media.photographerId === Id){
-                        // creo e aggiungo la somma dei likes al cratellino del prezzo
+                        // créer et ajouter la somme des likes au tableau prix
                         currentMedias.push(media);
                         sum += media.likes;
                         const likesBlock = document.querySelector('.photograph-likes');
@@ -152,9 +150,6 @@ async function getMedias(){
                         icon.classList.add('tot-likes-icon' ,'fa-solid', 'fa-heart');
                         likesBlock.append(icon);
                         //je verifie si c'est une image ou un video.
-                        // creazione slides carousel  
-
-                        // resoudre le bug de repetition
                         displayData(media, mediaSection);
                     }   
                 });

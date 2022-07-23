@@ -1,5 +1,4 @@
 const photographersSection = document.querySelector('.photographer_section');
-//console.log(hashtags);
 async function getPhotographers() {
 // Penser à remplacer par les données récupérées dans le json
     fetch('./data/photographers.json')

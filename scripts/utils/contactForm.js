@@ -4,7 +4,7 @@ const openForm = document.querySelector('.contact_button');
 const modal = document.querySelector('#contact_modal');
 const lightbox = document.querySelector('#lightbox');
 
-// creare bottoni carousel
+// open form & keydown events
 const main = document.querySelector('#main');
 
 function displayModal() {
@@ -47,7 +47,11 @@ closeForm.forEach((close) => close.addEventListener('click', closeModal));
 body.addEventListener('keydown', function(e){
     if (e.key === 'Escape'){
         closeModal();
-    }if(e.key === 'ArrowLeft'){
+    }
+});
+
+main.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowLeft'){
         prevImage();
     }if(e.key === 'ArrowRight'){
         nextImage();
