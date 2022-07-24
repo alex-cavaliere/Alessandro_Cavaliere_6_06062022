@@ -1,4 +1,4 @@
-// creare il constructor per i media
+// créer le constructor per les media
 
 class Media{
     constructor(data){

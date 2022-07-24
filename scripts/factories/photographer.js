@@ -1,5 +1,3 @@
-//eslint-disable-global no-undef
-//eslint-disable-global no-unused-vars
 function photographerFactory(data) {
     const photographer = new Photographer(data);
     
@@ -176,8 +174,5 @@ function mediasFactory(data){
 }
 
 
-function clearDOM() {
-    let body = document.querySelector('.photograph-body');
-    body.innerHTML = '';
-}
+
 

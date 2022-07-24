@@ -7,6 +7,8 @@ let filterItem = document.querySelectorAll('.filter-item');
 document.querySelector('.selected').innerHTML = 'Popularité';
 const mediaSection = document.querySelector('.photograph-body');
 
+// filtre de tri
+
 for(let item of filterItem){
     item.addEventListener('click', filterAction, false);
 }

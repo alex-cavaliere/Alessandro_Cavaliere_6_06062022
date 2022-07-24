@@ -2,6 +2,7 @@ const closeForm = document.querySelectorAll('.close');
 const body = document.querySelector('body');
 const openForm = document.querySelector('.contact_button');
 const modal = document.querySelector('#contact_modal');
+const photographBody = document.querySelector('.photograph-body');
 const lightbox = document.querySelector('#lightbox');
 
 // open form & keydown events
@@ -48,9 +49,6 @@ body.addEventListener('keydown', function(e){
     if (e.key === 'Escape'){
         closeModal();
     }
-});
-
-main.addEventListener('keydown', function(e){
     if(e.key === 'ArrowLeft'){
         prevImage();
     }if(e.key === 'ArrowRight'){
