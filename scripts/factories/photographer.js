@@ -95,7 +95,6 @@ function mediasFactory(data){
     i.classList.add('fa-regular', 'fa-heart');
     const heart = document.createElement('span');
     heart.classList.add('heart');
-    span.classList.add('icon');
     heart.append(likes);
     span.append(i);
     heart.append(span);
