@@ -106,7 +106,7 @@ form {
     height: auto;
     border-radius: 0 0 5px 5px;
 }
-.chevron i{
+.chevron em{
     transform:rotate(0);
     transition: transform 250ms;
 }

@@ -90,14 +90,12 @@ function mediasFactory(data){
     likes.classList.add('counter');
     likes.textContent = media._likes;
     const i = document.createElement('i');
-    const span = document.createElement('span');
     likes.setAttribute('aria-label', 'likes');
     i.classList.add('fa-regular', 'fa-heart');
     const heart = document.createElement('span');
     heart.classList.add('heart');
     heart.append(likes);
-    span.append(i);
-    heart.append(span);
+    heart.append(i);
 
     const totLikes = document.querySelector('.photograph-likes');
     const icon = document.createElement('i');

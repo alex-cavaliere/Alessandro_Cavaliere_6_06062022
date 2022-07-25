@@ -23,7 +23,7 @@ function closeModal() {
 //filtri
 const filter = document.querySelector('#filter-select');
 const options = document.querySelector('.filter-container');
-const chevron = document.querySelector('.chevron > i');
+const chevron = document.querySelector('.chevron > em');
 
 filter.addEventListener('click', function(e){
     e.preventDefault();
