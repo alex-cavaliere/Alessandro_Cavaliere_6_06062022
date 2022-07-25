@@ -208,6 +208,10 @@ textarea{
     align-items: center;
     justify-content: space-between;
 }
+.icon{
+    margin-right: -1.5em;
+    margin-left: 0.4em;
+}
 .tot-likes-icon{
     font-size: 0.9em
 }
